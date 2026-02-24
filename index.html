@@ -10,191 +10,256 @@
 
 <style>
 :root{
-    --primary:#e91e63;
+  --primary:#e91e63;
+  --secondary:#ff9800;
+  --accent:#fdd835;
 }
 
 /* Geral */
 body, html{
-    margin:0;
-    padding:0;
-    font-family:'Montserrat', sans-serif;
-    scroll-behavior:smooth;
-    background:#fff;
-    color:#222;
-}
-
-section{
-    padding:100px 10%;
-    position:relative;
+  margin:0;
+  padding:0;
+  font-family:'Montserrat', sans-serif;
+  scroll-behavior:smooth;
+  background:#fff;
+  color:#222;
 }
 
 /* HERO */
 .hero{
-    height:100vh;
-    width:100%;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
+  height:100vh;
+  width:100%;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
 
 .hero img{
-    width:100%;
-    height:100%;
-    object-fit: cover;
-    object-position: center top; /* cabeça visível */
-    transform: perspective(1000px) rotateY(-2deg) scale(1.02); /* efeito 3D leve */
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-    transition: transform 0.5s ease;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: perspective(1200px) rotateY(-2deg) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
 .hero img:hover{
-    transform: perspective(1000px) rotateY(0deg) scale(1.03);
+  transform: perspective(1200px) rotateY(0deg) scale(1.03);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.6);
 }
 
 .hero::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.25);
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.25);
 }
 
 .hero-content{
-    position:absolute;
-    text-align:center;
-    z-index:2;
+  position:absolute;
+  text-align:center;
+  z-index:2;
 }
 
 .hero-content h1{
-    font-family:'Playfair Display', serif;
-    font-size:70px;
-    color:#fff;
-    text-shadow: 2px 2px 20px rgba(0,0,0,0.6);
-    margin:0;
+  font-family:'Playfair Display', serif;
+  font-size:70px;
+  color:#fff;
+  text-shadow: 2px 2px 30px rgba(0,0,0,0.7);
+  margin:0;
+  position: relative;
+  top: 25%;
+  opacity:0;
+  transform: translateY(-20px);
+  animation: fadeInDown 1s forwards 0.5s;
 }
 
-/* MENU LATERAL TRÊS TRACINHOS */
+@keyframes fadeInDown{
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* MENU LATERAL 3 TRACINHOS */
 .tracos{
-    position:fixed;
-    top:50%;
-    right:30px;
-    transform:translateY(-50%);
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    z-index:10;
+  position:fixed;
+  top:50%;
+  right:30px;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  z-index:1002;
+  cursor:pointer;
 }
 
-.tracos a{
-    display:block;
-    width:30px;
-    height:4px;
-    background:#fff;
-    border-radius:2px;
-    transition:0.3s;
+.tracos div{
+  width:30px;
+  height:4px;
+  background:#fff;
+  border-radius:2px;
+  transition:0.3s;
 }
 
-.tracos a:hover{
-    background:var(--primary);
+.tracos:hover div{
+  background:var(--primary);
+}
+
+/* Barra lateral menu */
+.side-menu{
+  position:fixed;
+  top:0;
+  right:-220px;
+  width:220px;
+  height:100%;
+  background:rgba(255,255,255,0.95);
+  box-shadow:-5px 0 20px rgba(0,0,0,0.3);
+  display:flex;
+  flex-direction:column;
+  padding:100px 20px;
+  transition: right 0.4s ease;
+  z-index:1001;
+}
+
+.side-menu.active{
+  right:0;
+}
+
+.side-menu a{
+  margin:15px 0;
+  font-size:18px;
+  color:#222;
+  text-decoration:none;
+  transition: color 0.3s;
+}
+
+.side-menu a:hover{
+  color:var(--primary);
 }
 
 /* SOBRE */
+#sobre{
+  background: url('sobre-bg.jpg') center/cover no-repeat;
+  color:#fff;
+  padding:120px 10%;
+}
+
 .sobre-container{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:40px;
-    justify-content:center;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:40px;
+  justify-content:center;
 }
 
 .sobre-container img{
-    width:350px;
-    border-radius:10px;
+  width:350px;
+  border-radius:10px;
 }
 
 .sobre-texto{
-    max-width:500px;
-    text-align:left;
+  max-width:500px;
+  text-align:left;
 }
 
-/* Vídeo */
+/* VÍDEO */
+#video{
+  background: linear-gradient(135deg, #ff4081, #ff9800);
+  padding:120px 10%;
+  border-radius:10px;
+}
+
 .video iframe{
-    width:100%;
-    max-width:800px;
-    height:450px;
-    border-radius:10px;
+  width:100%;
+  max-width:800px;
+  height:450px;
+  border-radius:10px;
 }
 
-/* Galeria */
+/* GALERIA */
+#galeria{
+  background:#f8f0e3;
+  padding:120px 10%;
+}
+
 .galeria{
-    display:flex;
-    overflow-x:auto;
-    gap:20px;
-    padding-bottom:10px;
+  display:flex;
+  overflow-x:auto;
+  gap:20px;
+  padding-bottom:10px;
 }
 
 .galeria img{
-    height:300px;
-    border-radius:10px;
-    flex-shrink:0;
-    transition: transform 0.3s, filter 0.3s;
+  height:300px;
+  border-radius:10px;
+  flex-shrink:0;
+  transition: transform 0.3s, filter 0.3s;
 }
 
 .galeria img:hover{
-    transform: scale(1.05);
-    filter: brightness(1.2);
+  transform: scale(1.05);
+  filter: brightness(1.2);
 }
 
-/* Redes sociais */
-.redes{
-    display:flex;
-    justify-content:center;
-    gap:20px;
+/* CONTATO / REDES */
+#contato{
+  background:#222;
+  padding:120px 10%;
+  text-align:center;
 }
 
-.redes a{
-    font-size:30px;
-    color:#222;
-    transition:0.3s;
+#contato .redes{
+  display:flex;
+  justify-content:center;
+  gap:20px;
 }
 
-.redes a:hover{
-    color:var(--primary);
+#contato .redes a{
+  font-size:30px;
+  color:#fff;
+  transition:0.3s;
+}
+
+#contato .redes a:hover{
+  color:var(--primary);
 }
 
 /* WhatsApp flutuante */
 .whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:white;
-    width:55px;
-    height:55px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    font-size:28px;
-    text-decoration:none;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  width:55px;
+  height:55px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:28px;
+  text-decoration:none;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* Footer */
 footer{
-    background:white;
-    padding:50px 10%;
-    text-align:center;
-    border-top:1px solid #eee;
-    margin-top:60px;
+  background:white;
+  padding:50px 10%;
+  text-align:center;
+  border-top:1px solid #eee;
+  margin-top:60px;
 }
 
 footer .copyright{
-    margin-top:20px;
-    font-size:13px;
-    color:#777;
+  margin-top:20px;
+  font-size:13px;
+  color:#777;
 }
 </style>
 </head>
@@ -202,71 +267,85 @@ footer .copyright{
 
 <!-- Hero -->
 <section class="hero">
-    <img src="capa.png" alt="Mirian Soutto">
-    <div class="hero-content">
-        <h1>Mirian Soutto</h1>
-    </div>
+  <img src="capa.png" alt="Mirian Soutto">
+  <div class="hero-content">
+    <h1>Mirian Soutto</h1>
+  </div>
 </section>
 
-<!-- Menu lateral (3 tracinhos) -->
-<div class="tracos">
-    <a href="#sobre"></a>
-    <a href="#video"></a>
-    <a href="#galeria"></a>
-    <a href="#contato"></a>
+<!-- Menu 3 tracinhos -->
+<div class="tracos" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
 
-<!-- Sobre / Biografia resumida -->
+<!-- Barra lateral -->
+<div class="side-menu" id="menuLateral">
+  <a href="#sobre">Sobre</a>
+  <a href="#video">Vídeo</a>
+  <a href="#galeria">Galeria</a>
+  <a href="#contato">Contato</a>
+</div>
+
+<!-- Sobre -->
 <section id="sobre">
-    <div class="sobre-container">
-        <img src="mirian1.jpg" alt="Mirian Soutto">
-        <div class="sobre-texto">
-            <p>Mirian Soutto nasceu em São Francisco (MG) e atualmente atua em Brasília (DF). Já participou de rádios, incluindo a Rádio Atividade FM com o Vigão, gravou no estúdio com Rick Azevedo, entre outras experiências. Sua voz marcante e interpretação envolvente conquistam públicos diversos em shows e eventos.</p>
-        </div>
+  <div class="sobre-container">
+    <img src="mirian1.jpg" alt="Mirian Soutto">
+    <div class="sobre-texto">
+      <p>Mirian Soutto nasceu em São Francisco (MG) e atualmente atua em Brasília (DF). Já participou de rádios, incluindo a Rádio Atividade FM com o Vigão, gravou no estúdio com Rick Azevedo, entre outras experiências. Sua voz marcante e interpretação envolvente conquistam públicos diversos em shows e eventos.</p>
     </div>
+  </div>
 </section>
 
 <!-- Vídeo -->
 <section id="video" class="video">
-    <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc" frameborder="0" allowfullscreen></iframe>
 </section>
 
 <!-- Galeria -->
 <section id="galeria">
-    <div class="galeria">
-        <img src="mirian1.jpg" alt="">
-        <img src="mirian2.jpg" alt="">
-        <img src="mirian3.jpg" alt="">
-        <img src="mirian4.jpg" alt="">
-        <img src="mirian5.jpg" alt="">
-        <img src="mirian6.jpg" alt="">
-        <img src="mirian7.jpg" alt="">
-    </div>
+  <div class="galeria">
+    <img src="mirian1.jpg" alt="">
+    <img src="mirian2.jpg" alt="">
+    <img src="mirian3.jpg" alt="">
+    <img src="mirian4.jpg" alt="">
+    <img src="mirian5.jpg" alt="">
+    <img src="mirian6.jpg" alt="">
+    <img src="mirian7.jpg" alt="">
+  </div>
 </section>
 
-<!-- Contato / Redes -->
+<!-- Contato -->
 <section id="contato">
-    <div class="redes">
-        <a href="https://www.instagram.com/cantora_mirian_soutto_oficial"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.tiktok.com/@miriansoutto"><i class="bi bi-tiktok"></i></a>
-        <a href="https://www.youtube.com/watch?v=lZuuiNR4WGc"><i class="bi bi-youtube"></i></a>
-    </div>
+  <div class="redes">
+    <a href="https://www.instagram.com/cantora_mirian_soutto_oficial"><i class="bi bi-instagram"></i></a>
+    <a href="https://www.tiktok.com/@miriansoutto"><i class="bi bi-tiktok"></i></a>
+    <a href="https://www.youtube.com/watch?v=lZuuiNR4WGc"><i class="bi bi-youtube"></i></a>
+  </div>
 </section>
 
 <!-- WhatsApp flutuante -->
 <a href="https://wa.me/5561994223616" class="whatsapp">
-    <i class="bi bi-whatsapp"></i>
+  <i class="bi bi-whatsapp"></i>
 </a>
 
 <!-- Footer -->
 <footer>
-    <h3>Contato & Assessoria</h3>
-    <p><strong>Loara Silva</strong></p>
-    <p><a href="mailto:assessoriamiriansoutto@gmail.com">assessoriamiriansoutto@gmail.com</a></p>
-    <div class="copyright">
-        © 2026 Mirian Soutto – Todos os direitos reservados
-    </div>
+  <h3>Contato & Assessoria</h3>
+  <p><strong>Loara Silva</strong></p>
+  <p><a href="mailto:assessoriamiriansoutto@gmail.com">assessoriamiriansoutto@gmail.com</a></p>
+  <div class="copyright">
+    © 2026 Mirian Soutto – Todos os direitos reservados
+  </div>
 </footer>
+
+<!-- JS menu -->
+<script>
+function toggleMenu(){
+  document.getElementById('menuLateral').classList.toggle('active');
+}
+</script>
 
 </body>
 </html>
