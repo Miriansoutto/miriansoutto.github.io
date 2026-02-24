@@ -5,263 +5,199 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mirian Soutto</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Ícones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-body{
-    font-family:'Poppins', sans-serif;
-    background:#ffffff;
-    color:#222;
+body {
+  background: #000;
+  color: white;
 }
 
-/* MENU */
-.menu-icon{
-    position:fixed;
-    top:25px;
-    right:25px;
-    font-size:28px;
-    cursor:pointer;
-    z-index:5000;
-    color:#fff;
+/* HEADER */
+header {
+  height: 100vh;
+  background: radial-gradient(circle at center, #2b2b2b 0%, #111 60%, #000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
 }
 
-#menu{
-    position:fixed;
-    top:0;
-    right:-250px;
-    width:250px;
-    height:100%;
-    background:#ffffff;
-    box-shadow:-3px 0 10px rgba(0,0,0,0.1);
-    padding-top:80px;
-    transition:0.4s;
-    z-index:4999;
+header::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255,255,255,0.08);
+  filter: blur(120px);
+  border-radius: 50%;
+  top: 20%;
+  right: 15%;
 }
 
-#menu a{
-    display:block;
-    padding:15px 30px;
-    text-decoration:none;
-    color:#222;
-    font-weight:500;
+.header-img {
+  max-height: 90%;
+  object-fit: contain;
+  z-index: 2;
+  filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.6));
 }
 
-#menu a:hover{
-    background:#f2f2f2;
-}
-
-/* HERO */
-.hero{
-    height:100vh;
-    background:url('capa.png') center top/contain no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    position:relative;
-    padding-top:100px;
-}
-
-.hero h1{
-    font-family:'Playfair Display', serif;
-    font-size:70px;
-    color:#ffffff;
-    letter-spacing:5px;
-    text-shadow:2px 2px 10px rgba(0,0,0,0.5);
-}
-
-/* ÍCONES SOCIAIS */
-.social-icons{
-    text-align:center;
-    padding:40px 0;
-}
-
-.social-icons a{
-    margin:0 20px;
-    font-size:28px;
-    color:#222;
-    transition:0.3s;
-}
-
-.social-icons a:hover{
-    color:#c59d5f;
+.nome {
+  position: absolute;
+  bottom: 80px;
+  font-size: 50px;
+  letter-spacing: 6px;
+  font-weight: 300;
+  z-index: 3;
 }
 
 /* SOBRE */
-.section{
-    padding:70px 20px;
-    text-align:center;
-    max-width:900px;
-    margin:auto;
+section {
+  padding: 80px 20px;
+  text-align: center;
 }
 
-.section h2{
-    font-family:'Playfair Display', serif;
-    font-size:32px;
-    margin-bottom:20px;
+.sobre {
+  background: #111;
 }
 
-/* VÍDEO */
-.video iframe{
-    width:100%;
-    max-width:900px;
-    height:500px;
-    border-radius:15px;
+.sobre h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
 /* GALERIA */
-.galeria{
-    display:flex;
-    overflow-x:auto;
-    gap:20px;
-    padding:20px;
+.galeria {
+  background: #000;
 }
 
-.galeria img{
-    height:320px;
-    border-radius:15px;
-    object-fit:cover;
+.fotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.fotos img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.fotos img:hover {
+  transform: scale(1.05);
 }
 
 /* CONTATO */
-.contato{
-    background:#f9f9f9;
-    padding:70px 20px;
-    text-align:center;
+.contato {
+  background: #111;
 }
 
-.contato h2{
-    font-family:'Playfair Display', serif;
-    margin-bottom:20px;
+.contato a {
+  display: inline-block;
+  margin: 10px;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
 }
 
-.contato p{
-    margin:8px 0;
-    font-size:18px;
+.contato i {
+  margin-right: 8px;
 }
 
-/* RODAPÉ */
-footer{
-    text-align:center;
-    padding:30px;
-    font-size:14px;
-    background:#ffffff;
+/* REDES SOCIAIS */
+.redes {
+  margin-top: 20px;
+}
+
+.redes a {
+  font-size: 25px;
+  margin: 0 10px;
+  color: white;
+  transition: 0.3s;
+}
+
+.redes a:hover {
+  color: #25D366;
 }
 
 /* WHATSAPP FLUTUANTE */
-.whatsapp{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    background:#25D366;
-    color:#fff;
-    font-size:28px;
-    width:60px;
-    height:60px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    text-decoration:none;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-    z-index:6000;
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  font-size: 28px;
+  padding: 15px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  font-size: 14px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- MENU -->
-<div class="menu-icon" onclick="abrirMenu()">
-    <i class="fas fa-bars"></i>
-</div>
+<header>
+  <img src="capa.png" class="header-img">
+  <div class="nome">MIRIAN SOUTTO</div>
+</header>
 
-<div id="menu">
-    <a href="#sobre">Sobre</a>
-    <a href="#video">Vídeo</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#contato">Contato</a>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-    <h1>MIRIAN SOUTTO</h1>
+<section class="sobre">
+  <h2>Sobre</h2>
+  <p>Mirian Soutto é cantora sertaneja, levando emoção e autenticidade para cada palco.</p>
 </section>
 
-<!-- REDES -->
-<div class="social-icons">
-    <a href="https://www.instagram.com/cantora_mirian_soutto_oficial" target="_blank">
-        <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.tiktok.com/@miriansoutto" target="_blank">
-        <i class="fab fa-tiktok"></i>
-    </a>
-    <a href="https://youtu.be/lZuuiNR4WGc" target="_blank">
-        <i class="fab fa-youtube"></i>
-    </a>
-</div>
-
-<!-- SOBRE -->
-<section id="sobre" class="section">
-    <h2>Sobre</h2>
-    <p>
-        Mirian Soutto é cantora com presença marcante e repertório que envolve o público em cada apresentação.
-        Atua em eventos, festas e shows particulares levando emoção e energia ao palco.
-    </p>
+<section class="galeria">
+  <h2>Galeria</h2>
+  <div class="fotos">
+    <img src="mirian1.jpg">
+    <img src="mirian2.jpg">
+    <img src="mirian3.jpg">
+    <img src="mirian4.jpg">
+    <img src="mirian5.jpg">
+    <img src="mirian6.jpg">
+    <img src="mirian7.jpg">
+  </div>
 </section>
 
-<!-- VÍDEO -->
-<section id="video" class="section video">
-    <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc" 
-    frameborder="0" allowfullscreen></iframe>
+<section class="contato">
+  <h2>Contato</h2>
+  <a href="mailto:seuemail@email.com"><i class="fa-solid fa-envelope"></i>Email</a>
+  <a href="tel:+5561994223616"><i class="fa-solid fa-phone"></i>(61) 99422-3616</a>
+
+  <div class="redes">
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+  </div>
 </section>
 
-<!-- GALERIA -->
-<section id="galeria" class="section">
-    <div class="galeria">
-        <img src="mirian1.jpg">
-        <img src="mirian2.jpg">
-        <img src="mirian3.jpg">
-        <img src="mirian4.jpg">
-        <img src="mirian5.jpg">
-        <img src="mirian6.jpg">
-        <img src="mirian7.jpg">
-    </div>
-</section>
-
-<!-- CONTATO -->
-<section id="contato" class="contato">
-    <h2>Contato</h2>
-    <p><strong>Telefone:</strong> (61) 99820-5298</p>
-    <p><strong>Email:</strong> assessoriamiriansoutto@gmail.com</p>
-    <p><strong>Assessoria:</strong> Loara Silva</p>
-</section>
-
-<footer>
-    © 2026 Mirian Soutto - Todos os direitos reservados
-</footer>
-
-<a href="https://wa.me/5561998205298" target="_blank" class="whatsapp">
-    <i class="fab fa-whatsapp"></i>
+<a href="https://wa.me/5561994223616" class="whatsapp">
+  <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<script>
-function abrirMenu(){
-    const menu = document.getElementById("menu");
-    if(menu.style.right === "0px"){
-        menu.style.right = "-250px";
-    }else{
-        menu.style.right = "0px";
-    }
-}
-</script>
+<footer>
+  © 2026 Mirian Soutto - Todos os direitos reservados.
+</footer>
 
 </body>
 </html>
