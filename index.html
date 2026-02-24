@@ -3,70 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mirian Soutto | Cantora</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Mirian Soutto | Cantora Sertaneja</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
+
 body{
     margin:0;
     font-family:'Poppins', sans-serif;
-    background:#f8f8f8;
+    background:#f4f4f4;
     color:#222;
-    text-align:center;
 }
+
+/* ================= HERO ================= */
 
 header{
     position:relative;
-    height:500px;
+    height:95vh;
     background:url('capa.png') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-header div{
+header::after{
+    content:"";
     position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    color:#fff;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    top:0;
+    left:0;
+}
+
+.hero{
+    position:relative;
+    z-index:2;
     text-align:center;
-}
-
-h1{
-    font-family:'Playfair Display', serif;
-    font-size:48px;
-    margin:0;
-    letter-spacing:3px;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-}
-
-h2{
-    font-weight:300;
-    margin-top:10px;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-}
-
-.social{
-    margin-top:25px;
-}
-
-.social a{
-    text-decoration:none;
-    margin:0 15px;
-    font-weight:500;
     color:#fff;
-    transition:0.3s;
+    max-width:800px;
 }
 
-.social a:hover{
-    color:#c59d5f;
+.hero h1{
+    font-family:'Playfair Display', serif;
+    font-size:60px;
+    margin:0;
+    letter-spacing:5px;
+}
+
+.hero p{
+    font-size:20px;
+    margin:20px 0;
+    font-weight:300;
 }
 
 .button{
     display:inline-block;
-    margin-top:20px;
-    padding:15px 35px;
+    padding:15px 45px;
     background:#c59d5f;
     color:#fff;
     text-decoration:none;
-    border-radius:30px;
+    border-radius:40px;
     font-weight:500;
     transition:0.3s;
 }
@@ -75,75 +73,197 @@ h2{
     background:#a87d3f;
 }
 
+/* ================= SEÇÕES ================= */
+
 .section{
-    padding:60px 20px;
+    padding:80px 20px;
+    text-align:center;
 }
+
+.section h2{
+    font-family:'Playfair Display', serif;
+    font-size:40px;
+    margin-bottom:40px;
+}
+
+/* ================= SOBRE ================= */
+
+.sobre{
+    max-width:800px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.6;
+}
+
+/* ================= VIDEO ================= */
 
 .video iframe{
     width:90%;
-    max-width:800px;
-    height:450px;
-    border-radius:12px;
+    max-width:900px;
+    height:500px;
+    border-radius:15px;
 }
 
-.fotos {
+/* ================= GALERIA ================= */
+
+.carousel{
+    overflow:hidden;
+    max-width:1200px;
+    margin:auto;
+}
+
+.carousel-track{
     display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-    margin-top:20px;
-    margin-bottom:60px;
+    gap:20px;
+    animation: scroll 30s linear infinite;
 }
 
-.fotos img {
-    width:200px;
-    border-radius:10px;
+.carousel img{
+    width:300px;
+    height:400px;
     object-fit:cover;
+    border-radius:15px;
 }
+
+@keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+}
+
+/* ================= AGENDA ================= */
+
+.agenda{
+    max-width:800px;
+    margin:auto;
+}
+
+.agenda div{
+    background:#fff;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* ================= DEPOIMENTOS ================= */
+
+.depoimentos{
+    max-width:800px;
+    margin:auto;
+}
+
+.depoimentos div{
+    background:#fff;
+    padding:25px;
+    margin-bottom:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    font-style:italic;
+}
+
+/* ================= WHATS FLUTUANTE ================= */
+
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:#fff;
+    padding:15px 20px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:500;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ================= FOOTER ================= */
 
 footer{
-    padding:30px;
+    padding:40px;
+    background:#111;
+    color:#fff;
+    text-align:center;
     font-size:14px;
-    background:#ffffff;
 }
+
+@media(max-width:768px){
+    .hero h1{font-size:40px;}
+    .video iframe{height:300px;}
+}
+
 </style>
 </head>
+
 <body>
 
 <header>
-    <div>
+    <div class="hero">
         <h1>MIRIAN SOUTTO</h1>
-        <h2>Cantora | Shows & Eventos</h2>
-        <div class="social">
-            <a href="https://www.instagram.com/cantora_mirian_soutto_oficial" target="_blank">Instagram</a>
-            <a href="https://youtube.com/@miriansoutto" target="_blank">YouTube</a>
-            <a href="https://wa.me/5561998205298" target="_blank">WhatsApp</a>
-        </div>
+        <p>Cantora Sertaneja para Shows, Eventos e Casamentos</p>
         <a class="button" href="https://wa.me/5561998205298" target="_blank">Contratar Show</a>
     </div>
 </header>
+
+<section class="section">
+    <h2>Sobre</h2>
+    <div class="sobre">
+        Mirian Soutto é cantora sertaneja com presença marcante e repertório que mistura
+        os grandes sucessos do sertanejo com emoção e autenticidade. Atua em bares,
+        eventos corporativos, casamentos e festas particulares, levando energia e
+        profissionalismo para cada apresentação.
+    </div>
+</section>
 
 <section class="section video">
     <h2>Vídeo Destaque</h2>
     <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=miriansoutto" frameborder="0" allowfullscreen></iframe>
 </section>
 
-<section class="section fotos">
+<section class="section">
     <h2>Galeria</h2>
-    <div class="fotos">
-        <img src="mirian1.jpg">
-        <img src="mirian2.jpg">
-        <img src="mirian3.jpg">
-        <img src="mirian4.jpg">
-        <img src="mirian5.jpg">
-        <img src="mirian6.jpg">
-        <img src="mirian7.jpg">
+    <div class="carousel">
+        <div class="carousel-track">
+            <img src="mirian1.jpg">
+            <img src="mirian2.jpg">
+            <img src="mirian3.jpg">
+            <img src="mirian4.jpg">
+            <img src="mirian5.jpg">
+            <img src="mirian6.jpg">
+
+            <img src="mirian1.jpg">
+            <img src="mirian2.jpg">
+            <img src="mirian3.jpg">
+            <img src="mirian4.jpg">
+            <img src="mirian5.jpg">
+            <img src="mirian6.jpg">
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Agenda</h2>
+    <div class="agenda">
+        <div><strong>15 Março</strong> - Evento Particular - Brasília</div>
+        <div><strong>22 Março</strong> - Bar & Música - Goiânia</div>
+        <div><strong>30 Março</strong> - Casamento - Brasília</div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Depoimentos</h2>
+    <div class="depoimentos">
+        <div>"Show incrível! Energia contagiante e voz maravilhosa!"</div>
+        <div>"Contrataria mil vezes. Profissional e talentosa!"</div>
     </div>
 </section>
 
 <footer>
     © 2026 Mirian Soutto - Todos os direitos reservados
 </footer>
+
+<a class="whatsapp" href="https://wa.me/5561998205298" target="_blank">
+    Fale no WhatsApp
+</a>
 
 </body>
 </html>
