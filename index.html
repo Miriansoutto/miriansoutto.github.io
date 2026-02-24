@@ -12,7 +12,6 @@
 :root{
   --primary:#e91e63;
   --secondary:#ff9800;
-  --accent:#fdd835;
 }
 
 /* Geral */
@@ -41,14 +40,12 @@ body, html{
   height:100%;
   object-fit: cover;
   object-position: center top;
-  transform: perspective(1200px) rotateY(-2deg) scale(1.02);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  transform: scale(1.02);
+  transition: transform 0.6s ease;
 }
 
 .hero img:hover{
-  transform: perspective(1200px) rotateY(0deg) scale(1.03);
-  box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+  transform: scale(1.03);
 }
 
 .hero::after{
@@ -56,7 +53,7 @@ body, html{
   position:absolute;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.25);
+  background: rgba(0,0,0,0.25);
 }
 
 .hero-content{
@@ -89,18 +86,18 @@ body, html{
 .tracos{
   position:fixed;
   top:50%;
-  right:30px;
+  right:20px;
   transform:translateY(-50%);
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:6px;
   z-index:1002;
   cursor:pointer;
 }
 
 .tracos div{
   width:30px;
-  height:4px;
+  height:3px;
   background:#fff;
   border-radius:2px;
   transition:0.3s;
@@ -114,8 +111,8 @@ body, html{
 .side-menu{
   position:fixed;
   top:0;
-  right:-220px;
-  width:220px;
+  right:-260px; /* totalmente fora da tela */
+  width:240px;
   height:100%;
   background:rgba(255,255,255,0.95);
   box-shadow:-5px 0 20px rgba(0,0,0,0.3);
@@ -167,18 +164,51 @@ body, html{
   text-align:left;
 }
 
-/* VÍDEO */
-#video{
-  background: linear-gradient(135deg, #ff4081, #ff9800);
-  padding:120px 10%;
-  border-radius:10px;
+/* FUNDO EXTRA */
+#fundo-extra{
+  position:relative;
+  background: url('mirian8.png') center/cover no-repeat;
+  height:500px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
 
-.video iframe{
+#fundo-extra::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
   width:100%;
-  max-width:800px;
-  height:450px;
+  height:100%;
+  background: rgba(0,0,0,0.2); /* overlay suave */
+  z-index:1;
+}
+
+/* VÍDEOS */
+#video{
+  padding:120px 10%;
+}
+
+#video h2{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.video-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:40px;
+}
+
+.video-container > div{
+  flex:1 1 300px;
+  max-width:500px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
   border-radius:10px;
+  overflow:hidden;
 }
 
 /* GALERIA */
@@ -261,6 +291,16 @@ footer .copyright{
   font-size:13px;
   color:#777;
 }
+
+/* Responsivo */
+@media(max-width:768px){
+  .sobre-container{
+    flex-direction:column;
+  }
+  .video-container{
+    flex-direction:column;
+  }
+}
 </style>
 </head>
 <body>
@@ -283,7 +323,7 @@ footer .copyright{
 <!-- Barra lateral -->
 <div class="side-menu" id="menuLateral">
   <a href="#sobre">Sobre</a>
-  <a href="#video">Vídeo</a>
+  <a href="#video">Vídeos</a>
   <a href="#galeria">Galeria</a>
   <a href="#contato">Contato</a>
 </div>
@@ -298,10 +338,28 @@ footer .copyright{
   </div>
 </section>
 
-<!-- Vídeo -->
-<section id="video" class="video">
-  <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc" frameborder="0" allowfullscreen></iframe>
+<!-- Fundo extra -->
+<section id="fundo-extra"></section>
+
+<!-- Vídeos -->
+<section id="video">
+  <h2>Vídeos</h2>
+  <div class="video-container">
+    <!-- YouTube -->
+    <div>
+      <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc" frameborder="0" allowfullscreen style="width:100%; height:300px;"></iframe>
+    </div>
+    <!-- Instagram Reels 1 -->
+    <div>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVEPuZkDqXt/" data-instgrm-version="14" style="width:100%; margin:0 auto;"></blockquote>
+    </div>
+    <!-- Instagram Reels 2 -->
+    <div>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DT3oOlvko1O/" data-instgrm-version="14" style="width:100%; margin:0 auto;"></blockquote>
+    </div>
+  </div>
 </section>
+<script async src="//www.instagram.com/embed.js"></script>
 
 <!-- Galeria -->
 <section id="galeria">
