@@ -15,8 +15,18 @@ body{
 }
 
 header{
-    padding:60px 20px;
-    background:#ffffff;
+    position:relative;
+    height:500px;
+    background:url('capa.png') center/cover no-repeat;
+}
+
+header div{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    color:#fff;
+    text-align:center;
 }
 
 h1{
@@ -24,11 +34,13 @@ h1{
     font-size:48px;
     margin:0;
     letter-spacing:3px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 }
 
 h2{
     font-weight:300;
     margin-top:10px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
 .social{
@@ -39,12 +51,28 @@ h2{
     text-decoration:none;
     margin:0 15px;
     font-weight:500;
-    color:#555;
+    color:#fff;
     transition:0.3s;
 }
 
 .social a:hover{
     color:#c59d5f;
+}
+
+.button{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 35px;
+    background:#c59d5f;
+    color:#fff;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.button:hover{
+    background:#a87d3f;
 }
 
 .section{
@@ -58,21 +86,21 @@ h2{
     border-radius:12px;
 }
 
-.button{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 35px;
-    background:#c59d5f;
-    color:#fff;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:500;
-    transition:0.3s;
+.fotos {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+    margin-bottom:60px;
 }
 
-.button:hover{
-    background:#a87d3f;
+.fotos img {
+    width:200px;
+    border-radius:10px;
+    object-fit:cover;
 }
+
 footer{
     padding:30px;
     font-size:14px;
@@ -83,21 +111,34 @@ footer{
 <body>
 
 <header>
-    <h1>MIRIAN SOUTTO</h1>
-    <h2>Cantora | Shows & Eventos</h2>
-
-    <div class="social">
-        <a href="https://www.instagram.com/cantora_mirian_soutto_oficial?igsh=cW9pNWl2cXB2d28x" target="_blank">Instagram</a>
-        <a href="https://youtube.com/@miriansoutto?si=Wc9AlH2DFG98Lzef" target="_blank">YouTube</a>
-        <a href="https://wa.me/5561998205298" target="_blank">WhatsApp</a>
+    <div>
+        <h1>MIRIAN SOUTTO</h1>
+        <h2>Cantora | Shows & Eventos</h2>
+        <div class="social">
+            <a href="https://www.instagram.com/cantora_mirian_soutto_oficial" target="_blank">Instagram</a>
+            <a href="https://youtube.com/@miriansoutto" target="_blank">YouTube</a>
+            <a href="https://wa.me/5561998205298" target="_blank">WhatsApp</a>
+        </div>
+        <a class="button" href="https://wa.me/5561998205298" target="_blank">Contratar Show</a>
     </div>
-
-    <a class="button" href="https://wa.me/5561998205298" target="_blank">Contratar Show</a>
 </header>
 
 <section class="section video">
     <h2>Vídeo Destaque</h2>
     <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=miriansoutto" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<section class="section fotos">
+    <h2>Galeria</h2>
+    <div class="fotos">
+        <img src="mirian1.jpg">
+        <img src="mirian2.jpg">
+        <img src="mirian3.jpg">
+        <img src="mirian4.jpg">
+        <img src="mirian5.jpg">
+        <img src="mirian6.jpg">
+        <img src="mirian7.jpg">
+    </div>
 </section>
 
 <footer>
