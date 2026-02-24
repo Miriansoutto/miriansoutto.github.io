@@ -3,407 +3,251 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mirian Soutto | Cantora</title>
+
+<title>Mirian Soutto</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
 <style>
-:root{
-  --primary:#e91e63;
-  --secondary:#ff9800;
-}
-
-/* Geral */
-body, html{
+body{
   margin:0;
-  padding:0;
   font-family:'Montserrat', sans-serif;
-  scroll-behavior:smooth;
-  background:#fff;
-  color:#222;
+  background:#000;
+  color:#fff;
 }
 
 /* HERO */
 .hero{
   height:100vh;
-  width:100%;
   position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
 }
 
 .hero img{
   width:100%;
   height:100%;
-  object-fit: cover;
-  object-position: center top;
-  transform: scale(1.02);
-  transition: transform 0.6s ease;
+  object-fit:cover;
 }
 
-.hero img:hover{
-  transform: scale(1.03);
-}
-
-.hero::after{
-  content:"";
+.overlay{
   position:absolute;
   width:100%;
   height:100%;
-  background: rgba(0,0,0,0.25);
+  background:rgba(0,0,0,0.4);
 }
 
 .hero-content{
   position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
   text-align:center;
-  z-index:2;
 }
 
-.hero-content h1{
+.hero h1{
   font-family:'Playfair Display', serif;
   font-size:70px;
-  color:#fff;
-  text-shadow: 2px 2px 30px rgba(0,0,0,0.7);
   margin:0;
-  position: relative;
-  top: 25%;
-  opacity:0;
-  transform: translateY(-20px);
-  animation: fadeInDown 1s forwards 0.5s;
 }
 
-@keyframes fadeInDown{
-  to{
-    opacity:1;
-    transform: translateY(0);
-  }
+.hero p{
+  letter-spacing:4px;
+  margin-top:10px;
+  font-size:14px;
 }
 
-/* MENU LATERAL 3 TRACINHOS */
-.tracos{
+/* MENU */
+.menu{
   position:fixed;
-  top:50%;
-  right:20px;
-  transform:translateY(-50%);
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  z-index:1002;
-  cursor:pointer;
+  top:30px;
+  right:30px;
+  z-index:10;
 }
 
-.tracos div{
-  width:30px;
-  height:3px;
-  background:#fff;
-  border-radius:2px;
+.menu a{
+  display:block;
+  margin:10px 0;
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
   transition:0.3s;
 }
 
-.tracos:hover div{
-  background:var(--primary);
-}
-
-/* Barra lateral menu */
-.side-menu{
-  position:fixed;
-  top:0;
-  right:-260px; /* totalmente fora da tela */
-  width:240px;
-  height:100%;
-  background:rgba(255,255,255,0.95);
-  box-shadow:-5px 0 20px rgba(0,0,0,0.3);
-  display:flex;
-  flex-direction:column;
-  padding:100px 20px;
-  transition: right 0.4s ease;
-  z-index:1001;
-}
-
-.side-menu.active{
-  right:0;
-}
-
-.side-menu a{
-  margin:15px 0;
-  font-size:18px;
-  color:#222;
-  text-decoration:none;
-  transition: color 0.3s;
-}
-
-.side-menu a:hover{
-  color:var(--primary);
+.menu a:hover{
+  color:#e91e63;
 }
 
 /* SOBRE */
 #sobre{
-  background: url('sobre-bg.jpg') center/cover no-repeat;
-  color:#fff;
   padding:120px 10%;
+  text-align:center;
 }
 
-.sobre-container{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:40px;
-  justify-content:center;
-}
-
-.sobre-container img{
-  width:350px;
+#sobre img{
+  width:280px;
   border-radius:10px;
+  margin-bottom:30px;
 }
 
-.sobre-texto{
+#sobre p{
   max-width:500px;
-  text-align:left;
+  margin:auto;
+  line-height:1.6;
 }
 
-/* FUNDO EXTRA */
-#fundo-extra{
+.btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:12px 30px;
+  background:#e91e63;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+/* FUNDO COM IMAGEM 8 */
+.fundo{
   position:relative;
-  background: url('mirian8.png') center/cover no-repeat;
-  height:500px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
+  padding:120px 10%;
+  background:url('mirian8.jpg') center/cover no-repeat;
 }
 
-#fundo-extra::after{
+.fundo::after{
   content:"";
   position:absolute;
-  top:0;
-  left:0;
   width:100%;
   height:100%;
-  background: rgba(0,0,0,0.2); /* overlay suave */
-  z-index:1;
+  background:rgba(0,0,0,0.75);
 }
 
-/* VÍDEOS */
-#video{
-  padding:120px 10%;
-}
-
-#video h2{
+.fundo-content{
+  position:relative;
+  z-index:2;
   text-align:center;
-  margin-bottom:40px;
 }
 
-.video-container{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:40px;
+/* VIDEOS */
+#videos{
+  padding:120px 10%;
+  text-align:center;
 }
 
-.video-container > div{
-  flex:1 1 300px;
-  max-width:500px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+.video iframe{
+  width:100%;
+  max-width:800px;
+  height:400px;
   border-radius:10px;
-  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* GALERIA */
 #galeria{
-  background:#f8f0e3;
-  padding:120px 10%;
+  padding:120px 5%;
 }
 
 .galeria{
   display:flex;
-  overflow-x:auto;
   gap:20px;
-  padding-bottom:10px;
+  overflow-x:auto;
 }
 
 .galeria img{
   height:300px;
   border-radius:10px;
-  flex-shrink:0;
-  transition: transform 0.3s, filter 0.3s;
+  transition:0.3s;
 }
 
 .galeria img:hover{
-  transform: scale(1.05);
-  filter: brightness(1.2);
+  transform:scale(1.05);
 }
 
-/* CONTATO / REDES */
+/* CONTATO */
 #contato{
-  background:#222;
   padding:120px 10%;
   text-align:center;
 }
 
-#contato .redes{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-}
-
-#contato .redes a{
-  font-size:30px;
+.redes a{
   color:#fff;
+  font-size:30px;
+  margin:0 12px;
   transition:0.3s;
 }
 
-#contato .redes a:hover{
-  color:var(--primary);
+.redes a:hover{
+  color:#e91e63;
+  transform:scale(1.2);
 }
 
-/* WhatsApp flutuante */
+/* WHATSAPP */
 .whatsapp{
   position:fixed;
   bottom:20px;
   right:20px;
   background:#25D366;
-  color:white;
-  width:55px;
-  height:55px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:50%;
-  font-size:28px;
+  font-size:30px;
+  color:#fff;
   text-decoration:none;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+  z-index:999;
+  transition:0.3s;
 }
 
-/* Footer */
+.whatsapp:hover{
+  transform:scale(1.1);
+}
+
+/* FOOTER */
 footer{
-  background:white;
-  padding:50px 10%;
   text-align:center;
-  border-top:1px solid #eee;
-  margin-top:60px;
-}
-
-footer .copyright{
-  margin-top:20px;
+  padding:40px 10%;
   font-size:13px;
-  color:#777;
-}
-
-/* Responsivo */
-@media(max-width:768px){
-  .sobre-container{
-    flex-direction:column;
-  }
-  .video-container{
-    flex-direction:column;
-  }
+  color:#aaa;
 }
 </style>
 </head>
+
 <body>
 
-<!-- Hero -->
-<section class="hero">
-  <img src="capa.png" alt="Mirian Soutto">
-  <div class="hero-content">
-    <h1>Mirian Soutto</h1>
-  </div>
-</section>
-
-<!-- Menu 3 tracinhos -->
-<div class="tracos" onclick="toggleMenu()">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-
-<!-- Barra lateral -->
-<div class="side-menu" id="menuLateral">
+<!-- MENU -->
+<div class="menu">
   <a href="#sobre">Sobre</a>
-  <a href="#video">Vídeos</a>
+  <a href="#videos">Vídeos</a>
   <a href="#galeria">Galeria</a>
   <a href="#contato">Contato</a>
 </div>
 
-<!-- Sobre -->
+<!-- HERO -->
+<section class="hero">
+  <img src="capa.png">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>Mirian Soutto</h1>
+    <p>CANTORA SERTANEJA</p>
+  </div>
+</section>
+
+<!-- SOBRE -->
 <section id="sobre">
-  <div class="sobre-container">
-    <img src="mirian1.jpg" alt="Mirian Soutto">
-    <div class="sobre-texto">
-      <p>Mirian Soutto nasceu em São Francisco (MG) e atualmente atua em Brasília (DF). Já participou de rádios, incluindo a Rádio Atividade FM com o Vigão, gravou no estúdio com Rick Azevedo, entre outras experiências. Sua voz marcante e interpretação envolvente conquistam públicos diversos em shows e eventos.</p>
-    </div>
-  </div>
+  <img src="mirian1.jpg">
+  <p>
+    Cantora sertaneja com voz marcante, Mirian Soutto se destaca em shows e eventos, levando emoção e presença de palco por onde passa.
+  </p>
+
+  <a href="https://wa.me/5561994223616" class="btn">Contratar Show</a>
 </section>
 
-<!-- Fundo extra -->
-<section id="fundo-extra"></section>
-
-<!-- Vídeos -->
-<section id="video">
-  <h2>Vídeos</h2>
-  <div class="video-container">
-    <!-- YouTube -->
-    <div>
-      <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc" frameborder="0" allowfullscreen style="width:100%; height:300px;"></iframe>
-    </div>
-    <!-- Instagram Reels 1 -->
-    <div>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVEPuZkDqXt/" data-instgrm-version="14" style="width:100%; margin:0 auto;"></blockquote>
-    </div>
-    <!-- Instagram Reels 2 -->
-    <div>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DT3oOlvko1O/" data-instgrm-version="14" style="width:100%; margin:0 auto;"></blockquote>
-    </div>
-  </div>
-</section>
-<script async src="//www.instagram.com/embed.js"></script>
-
-<!-- Galeria -->
-<section id="galeria">
-  <div class="galeria">
-    <img src="mirian1.jpg" alt="">
-    <img src="mirian2.jpg" alt="">
-    <img src="mirian3.jpg" alt="">
-    <img src="mirian4.jpg" alt="">
-    <img src="mirian5.jpg" alt="">
-    <img src="mirian6.jpg" alt="">
-    <img src="mirian7.jpg" alt="">
-  </div>
-</section>
-
-<!-- Contato -->
-<section id="contato">
-  <div class="redes">
-    <a href="https://www.instagram.com/cantora_mirian_soutto_oficial"><i class="bi bi-instagram"></i></a>
-    <a href="https://www.tiktok.com/@miriansoutto"><i class="bi bi-tiktok"></i></a>
-    <a href="https://www.youtube.com/watch?v=lZuuiNR4WGc"><i class="bi bi-youtube"></i></a>
-  </div>
-</section>
-
-<!-- WhatsApp flutuante -->
-<a href="https://wa.me/5561994223616" class="whatsapp">
-  <i class="bi bi-whatsapp"></i>
-</a>
-
-<!-- Footer -->
-<footer>
-  <h3>Contato & Assessoria</h3>
-  <p><strong>Loara Silva</strong></p>
-  <p><a href="mailto:assessoriamiriansoutto@gmail.com">assessoriamiriansoutto@gmail.com</a></p>
-  <div class="copyright">
-    © 2026 Mirian Soutto – Todos os direitos reservados
-  </div>
-</footer>
-
-<!-- JS menu -->
-<script>
-function toggleMenu(){
-  document.getElementById('menuLateral').classList.toggle('active');
-}
-</script>
-
-</body>
-</html>
+<!-- FUNDO COM IMAGEM 8 -->
+<section class
