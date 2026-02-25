@@ -13,24 +13,23 @@
 body{
   margin:0;
   font-family:'Montserrat', sans-serif;
-  background: linear-gradient(180deg,#f8f2ea,#efe3d6,#f6eee7);
-  color:#222;
+  background: linear-gradient(180deg,#1e1e1e,#3a2f2a,#d6bfa9);
+  color:#fff;
 }
 
 /* HERO */
 .hero{
   height:100vh;
-  background:url('capa.png') center top/cover no-repeat;
+  background:url('capa.png') center/cover no-repeat;
   position:relative;
 }
 
-/* NOME */
 .logo{
   position:absolute;
-  top:40px;
-  left:60px;
+  top:60px;
+  left:40px;
   font-family:'Playfair Display', serif;
-  font-size:36px;
+  font-size:34px;
   color:#fff;
 }
 
@@ -40,6 +39,7 @@ body{
   top:20px;
   right:20px;
   cursor:pointer;
+  z-index:1000;
 }
 .menu-btn div{
   width:28px;
@@ -62,7 +62,7 @@ body{
   display:block;
   padding:15px;
   text-decoration:none;
-  color:#222;
+  color:#000;
 }
 .menu.active{
   right:0;
@@ -94,6 +94,15 @@ section{
   border-radius:12px;
 }
 
+/* FOTO EXTRA */
+.destaque{
+  margin-top:40px;
+}
+.destaque img{
+  width:100%;
+  border-radius:12px;
+}
+
 /* SOBRE */
 .sobre{
   display:flex;
@@ -102,11 +111,8 @@ section{
   align-items:center;
 }
 .sobre img{
-  width:300px;
+  width:320px;
   border-radius:12px;
-}
-.sobre p{
-  line-height:1.6;
 }
 
 /* CONTATO */
@@ -115,16 +121,12 @@ section{
 }
 
 .redes{
-  margin-top:25px;
+  margin-top:20px;
 }
 .redes a{
-  font-size:32px;
+  font-size:30px;
   margin:0 12px;
-  color:#222;
-  transition:0.3s;
-}
-.redes a:hover{
-  transform:scale(1.2);
+  color:#fff;
 }
 
 /* WHATS */
@@ -156,6 +158,7 @@ section{
 </div>
 
 <div class="menu" id="menu">
+  <a href="#videos">Vídeo</a>
   <a href="#galeria">Galeria</a>
   <a href="#sobre">Sobre</a>
   <a href="#contato">Contato</a>
@@ -167,12 +170,10 @@ section{
 </section>
 
 <!-- VIDEO -->
-<section class="youtube">
-  <div style="display:flex; justify-content:center;">
-    <iframe 
-    src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60"
-    allowfullscreen></iframe>
-  </div>
+<section id="videos" class="youtube">
+  <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60&autoplay=1&mute=1"
+  allow="autoplay"
+  allowfullscreen></iframe>
 </section>
 
 <!-- GALERIA -->
@@ -184,19 +185,25 @@ section{
     <img src="mirian5.jpg">
     <img src="mirian6.jpg">
     <img src="mirian7.jpg">
+    <img src="mirian8.jpg">
+  </div>
+
+  <!-- FOTO EXTRA -->
+  <div class="destaque">
+    <img src="mirian8.jpg">
   </div>
 </section>
 
 <!-- SOBRE -->
 <section id="sobre" class="sobre">
 
-  <img src="mirian1.jpg">
+  <img src="mirian3.jpg">
 
   <div>
     <p>
       Mirian Soutto é cantora sertaneja natural de São Francisco (MG) e atualmente em Brasília (DF). 
       Dona de uma voz grave e marcante, já participou de rádios, incluindo a Atividade FM com o Vigão, 
-      e realizou gravações em estúdio com produtores musicais como Rick Azevedo, consolidando sua identidade artística.
+      e realizou gravações em estúdio com produtores musicais como Rick Azevedo.
     </p>
   </div>
 
@@ -208,26 +215,16 @@ section{
   <p>assessoriamiriansoutto@gmail.com</p>
 
   <div class="redes">
-    <a href="https://www.instagram.com/cantora_mirian_soutto_oficial" target="_blank">
-      <i class="bi bi-instagram"></i>
-    </a>
-
-    <a href="https://www.tiktok.com/@miriansoutto" target="_blank">
-      <i class="bi bi-tiktok"></i>
-    </a>
-
-    <a href="https://www.youtube.com/watch?v=lZuuiNR4WGc" target="_blank">
-      <i class="bi bi-youtube"></i>
-    </a>
+    <a href="https://www.instagram.com/cantora_mirian_soutto_oficial"><i class="bi bi-instagram"></i></a>
+    <a href="https://www.tiktok.com/@miriansoutto"><i class="bi bi-tiktok"></i></a>
+    <a href="https://www.youtube.com/watch?v=lZuuiNR4WGc"><i class="bi bi-youtube"></i></a>
   </div>
 </section>
 
-<!-- RODAPÉ -->
-<footer style="text-align:center; padding:40px; color:#777;">
-  © 2026 Mirian Soutto
+<footer style="text-align:center; padding:40px; color:#ddd;">
+  © 2026 Mirian Soutto – Todos os direitos reservados
 </footer>
 
-<!-- WHATS -->
 <a href="https://wa.me/5561998205298" class="whatsapp">💬</a>
 
 <script>
