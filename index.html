@@ -7,6 +7,7 @@
 <title>Mirian Soutto</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
 <style>
 body{
@@ -16,14 +17,21 @@ body{
   color:#222;
 }
 
-/* LOGO */
+/* HERO */
+.hero{
+  height:100vh;
+  background:url('capa.png') center top/cover no-repeat;
+  position:relative;
+}
+
+/* NOME */
 .logo{
-  position:fixed;
-  top:20px;
-  left:30px;
+  position:absolute;
+  top:40px;
+  left:60px;
   font-family:'Playfair Display', serif;
-  font-size:18px;
-  z-index:1000;
+  font-size:36px;
+  color:#fff;
 }
 
 /* MENU */
@@ -32,12 +40,11 @@ body{
   top:20px;
   right:20px;
   cursor:pointer;
-  z-index:1000;
 }
 .menu-btn div{
   width:28px;
   height:3px;
-  background:#000;
+  background:#fff;
   margin:6px 0;
 }
 
@@ -50,7 +57,6 @@ body{
   background:#fff;
   padding-top:100px;
   transition:0.4s;
-  box-shadow:-5px 0 20px rgba(0,0,0,0.2);
 }
 .menu a{
   display:block;
@@ -62,59 +68,29 @@ body{
   right:0;
 }
 
-/* HERO */
-.hero{
-  height:100vh;
-  background:url('capa.png') center top/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.3);
-}
-.hero h1{
-  position:relative;
-  color:#fff;
-  font-size:70px;
-  text-shadow:0 10px 30px rgba(0,0,0,0.8);
-}
-
 /* SEÇÕES */
 section{
-  padding:120px 10%;
-}
-.titulo{
-  text-align:center;
-  font-family:'Playfair Display', serif;
-  font-size:34px;
-  margin-bottom:40px;
+  padding:80px 8%;
 }
 
 /* VIDEO */
-.youtube{
-  text-align:center;
-}
 .youtube iframe{
   width:100%;
-  max-width:750px;
-  height:420px;
+  max-width:900px;
+  height:500px;
   border-radius:12px;
 }
 
 /* GALERIA */
 .galeria{
-  display:flex;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
   gap:20px;
-  overflow-x:auto;
 }
 .galeria img{
+  width:100%;
   height:260px;
+  object-fit:cover;
   border-radius:12px;
 }
 
@@ -122,31 +98,33 @@ section{
 .sobre{
   display:flex;
   flex-wrap:wrap;
-  gap:50px;
+  gap:40px;
   align-items:center;
 }
 .sobre img{
-  width:320px;
+  width:300px;
   border-radius:12px;
 }
 .sobre p{
-  line-height:1.7;
+  line-height:1.6;
 }
 
 /* CONTATO */
 #contato{
   text-align:center;
 }
+
 .redes{
-  margin-top:20px;
+  margin-top:25px;
 }
 .redes a{
-  margin:0 10px;
-  text-decoration:none;
-  color:#444;
+  font-size:32px;
+  margin:0 12px;
+  color:#222;
+  transition:0.3s;
 }
 .redes a:hover{
-  color:#000;
+  transform:scale(1.2);
 }
 
 /* WHATS */
@@ -170,8 +148,6 @@ section{
 
 <body>
 
-<div class="logo">Mirian Soutto</div>
-
 <!-- MENU -->
 <div class="menu-btn" onclick="toggleMenu()">
   <div></div>
@@ -180,7 +156,6 @@ section{
 </div>
 
 <div class="menu" id="menu">
-  <a href="#videos">Vídeo</a>
   <a href="#galeria">Galeria</a>
   <a href="#sobre">Sobre</a>
   <a href="#contato">Contato</a>
@@ -188,23 +163,21 @@ section{
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Mirian Soutto</h1>
+  <div class="logo">Mirian Soutto</div>
 </section>
 
 <!-- VIDEO -->
-<section id="videos" class="youtube">
-  <h2 class="titulo">Vídeo</h2>
-
-  <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60"
-  allowfullscreen></iframe>
+<section class="youtube">
+  <div style="display:flex; justify-content:center;">
+    <iframe 
+    src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60"
+    allowfullscreen></iframe>
+  </div>
 </section>
 
 <!-- GALERIA -->
 <section id="galeria">
-  <h2 class="titulo">Galeria</h2>
-
   <div class="galeria">
-    <img src="mirian1.jpg">
     <img src="mirian2.jpg">
     <img src="mirian3.jpg">
     <img src="mirian4.jpg">
@@ -220,15 +193,10 @@ section{
   <img src="mirian1.jpg">
 
   <div>
-    <h2 class="titulo">Sobre</h2>
-
     <p>
-      Mirian Soutto é cantora sertaneja natural de São Francisco (MG) e atualmente residente em Brasília (DF). 
-      Dona de uma voz grave, marcante e cheia de personalidade, vem conquistando o público por onde passa com sua presença de palco e interpretação envolvente.
-
-      Ao longo de sua trajetória, já participou de rádios, incluindo a Atividade FM com o Vigão, e realizou gravações em estúdio com produtores musicais como Rick Azevedo, fortalecendo sua identidade artística.
-
-      Seu trabalho carrega emoção, autenticidade e conexão com o público.
+      Mirian Soutto é cantora sertaneja natural de São Francisco (MG) e atualmente em Brasília (DF). 
+      Dona de uma voz grave e marcante, já participou de rádios, incluindo a Atividade FM com o Vigão, 
+      e realizou gravações em estúdio com produtores musicais como Rick Azevedo, consolidando sua identidade artística.
     </p>
   </div>
 
@@ -236,21 +204,27 @@ section{
 
 <!-- CONTATO -->
 <section id="contato">
-  <h2 class="titulo">Contato & Contratações</h2>
-
-  <p><strong>WhatsApp:</strong> (61) 99820-5298</p>
-  <p><strong>Email:</strong> assessoriamiriansoutto@gmail.com</p>
+  <p>(61) 99820-5298</p>
+  <p>assessoriamiriansoutto@gmail.com</p>
 
   <div class="redes">
-    <a href="https://www.instagram.com/cantora_mirian_soutto_oficial">Instagram</a>
-    <a href="https://www.tiktok.com/@miriansoutto">TikTok</a>
-    <a href="https://www.youtube.com/watch?v=lZuuiNR4WGc">YouTube</a>
+    <a href="https://www.instagram.com/cantora_mirian_soutto_oficial" target="_blank">
+      <i class="bi bi-instagram"></i>
+    </a>
+
+    <a href="https://www.tiktok.com/@miriansoutto" target="_blank">
+      <i class="bi bi-tiktok"></i>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=lZuuiNR4WGc" target="_blank">
+      <i class="bi bi-youtube"></i>
+    </a>
   </div>
 </section>
 
 <!-- RODAPÉ -->
-<footer style="text-align:center; padding:50px; color:#777;">
-  © 2026 Mirian Soutto – Todos os direitos reservados
+<footer style="text-align:center; padding:40px; color:#777;">
+  © 2026 Mirian Soutto
 </footer>
 
 <!-- WHATS -->
