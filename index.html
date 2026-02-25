@@ -6,14 +6,26 @@
 
 <title>Mirian Soutto</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
 <style>
 body{
   margin:0;
-  font-family:Arial;
-  background:#000;
-  color:#fff;
+  font-family:'Montserrat', sans-serif;
+  background:#fff;
+  color:#222;
+}
+
+/* ANIMAÇÃO */
+.fade{
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s;
+}
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* HERO */
@@ -23,14 +35,36 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
+  position:relative;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,0.2);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
   text-align:center;
 }
 
 .hero h1{
-  font-size:50px;
+  font-family:'Playfair Display', serif;
+  font-size:60px;
+  margin:0;
 }
 
-/* MENU 3 TRACINHOS */
+.sub{
+  letter-spacing:4px;
+  font-size:14px;
+  margin-top:10px;
+}
+
+/* MENU */
 .menu-btn{
   position:fixed;
   top:20px;
@@ -42,27 +76,26 @@ body{
 .menu-btn div{
   width:30px;
   height:3px;
-  background:#fff;
+  background:#000;
   margin:6px 0;
 }
 
-/* MENU LATERAL */
 .menu{
   position:fixed;
   top:0;
-  right:-250px;
-  width:200px;
+  right:-260px;
+  width:220px;
   height:100%;
-  background:#111;
+  background:#fff;
   padding-top:100px;
-  transition:0.3s;
-  z-index:999;
+  transition:0.4s;
+  box-shadow:-5px 0 20px rgba(0,0,0,0.2);
 }
 
 .menu a{
   display:block;
-  color:#fff;
   padding:15px;
+  color:#222;
   text-decoration:none;
 }
 
@@ -72,20 +105,39 @@ body{
 
 /* SEÇÕES */
 section{
-  padding:80px 20px;
+  padding:100px 10%;
   text-align:center;
+}
+
+/* TITULOS */
+.titulo{
+  font-family:'Playfair Display', serif;
+  font-size:32px;
+  margin-bottom:30px;
 }
 
 /* SOBRE */
 #sobre img{
-  width:250px;
+  width:280px;
   border-radius:10px;
+}
+
+/* BOTÃO */
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 25px;
+  background:#e91e63;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
 }
 
 /* FUNDO */
 .fundo{
   background:url('mirian8.jpg') center/cover no-repeat;
   position:relative;
+  color:#fff;
 }
 
 .fundo::after{
@@ -93,38 +145,38 @@ section{
   position:absolute;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.7);
-  top:0;
-  left:0;
+  background:rgba(0,0,0,0.3);
 }
 
 .fundo *{
   position:relative;
 }
 
-/* VIDEO */
-iframe{
-  width:100%;
-  max-width:600px;
-  height:300px;
+/* VIDEOS */
+.videos{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center;
 }
 
 /* GALERIA */
 .galeria{
   display:flex;
-  overflow:auto;
-  gap:10px;
+  overflow-x:auto;
+  gap:15px;
 }
 
 .galeria img{
-  height:200px;
+  height:250px;
+  border-radius:10px;
 }
 
 /* REDES */
 .redes a{
   font-size:28px;
   margin:0 10px;
-  color:#fff;
+  color:#222;
 }
 
 /* WHATS */
@@ -148,14 +200,13 @@ iframe{
 
 <body>
 
-<!-- BOTÃO MENU -->
+<!-- MENU -->
 <div class="menu-btn" onclick="toggleMenu()">
   <div></div>
   <div></div>
   <div></div>
 </div>
 
-<!-- MENU -->
 <div class="menu" id="menu">
   <a href="#sobre">Sobre</a>
   <a href="#videos">Vídeos</a>
@@ -164,31 +215,54 @@ iframe{
 </div>
 
 <!-- HERO -->
-<div class="hero">
-  <h1>Mirian Soutto</h1>
-</div>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Mirian Soutto</h1>
+    <p class="sub">CANTORA SERTANEJA</p>
+  </div>
+</section>
 
 <!-- SOBRE -->
-<section id="sobre">
+<section id="sobre" class="fade">
+  <h2 class="titulo">Sobre</h2>
+
   <img src="mirian1.jpg"><br><br>
-  <p>Cantora sertaneja com voz marcante e presença de palco.</p>
+
+  <p style="max-width:600px; margin:auto;">
+    Mirian Soutto é cantora sertaneja com voz grave e marcante, natural de São Francisco (MG) e atualmente em Brasília (DF). 
+    Já participou de rádios e gravações em estúdio, conquistando o público com presença de palco e um repertório envolvente para shows e eventos.
+  </p>
+
+  <a href="https://wa.me/5561998205298" class="btn">Contratar Show</a>
 </section>
 
 <!-- FUNDO -->
-<section class="fundo">
-  <h2>Shows</h2>
-  <p>Eventos, bares e festas em todo o Brasil.</p>
+<section class="fundo fade">
+  <h2 class="titulo">Shows</h2>
+  <p>Eventos, bares, festas e corporativos em todo o Brasil.</p>
 </section>
 
 <!-- VIDEOS -->
-<section id="videos">
-  <h2>Vídeo</h2>
-  <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc"></iframe>
+<section id="videos" class="fade">
+  <h2 class="titulo">Vídeos</h2>
+
+  <div class="videos">
+    <iframe width="400" height="300" src="https://www.youtube.com/embed/lZuuiNR4WGc"></iframe>
+
+    <blockquote class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DVEPuZkDqXt/"></blockquote>
+
+    <blockquote class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DT3oOlvko1O/"></blockquote>
+  </div>
 </section>
 
+<script async src="//www.instagram.com/embed.js"></script>
+
 <!-- GALERIA -->
-<section id="galeria">
-  <h2>Galeria</h2>
+<section id="galeria" class="fade">
+  <h2 class="titulo">Galeria</h2>
+
   <div class="galeria">
     <img src="mirian1.jpg">
     <img src="mirian2.jpg">
@@ -201,32 +275,41 @@ iframe{
 </section>
 
 <!-- CONTATO -->
-<section id="contato">
-  <h2>Contratações</h2>
-  <p>WhatsApp: (61) 99422-3616</p>
+<section id="contato" class="fade">
+  <h2 class="titulo">Contratações</h2>
+
+  <p>WhatsApp: (61) 99820-5298</p>
 
   <div class="redes">
-    <a href="https://instagram.com"><i class="bi bi-instagram"></i></a>
-    <a href="#"><i class="bi bi-tiktok"></i></a>
-    <a href="#"><i class="bi bi-youtube"></i></a>
+    <a href="https://www.instagram.com/cantora_mirian_soutto_oficial"><i class="bi bi-instagram"></i></a>
+    <a href="https://www.tiktok.com/@miriansoutto"><i class="bi bi-tiktok"></i></a>
+    <a href="https://www.youtube.com/watch?v=lZuuiNR4WGc"><i class="bi bi-youtube"></i></a>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
+<footer style="text-align:center; padding:40px; color:#777;">
   © 2026 Mirian Soutto
 </footer>
 
-<!-- WHATS -->
-<a href="https://wa.me/5561994223616" class="whatsapp">
+<a href="https://wa.me/5561998205298" class="whatsapp">
   <i class="bi bi-whatsapp"></i>
 </a>
 
-<!-- JS -->
 <script>
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
+
+const elements = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', ()=>{
+  elements.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('show');
+    }
+  });
+});
 </script>
 
 </body>
