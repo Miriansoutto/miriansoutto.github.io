@@ -13,17 +13,18 @@
 body{
   margin:0;
   font-family:'Montserrat', sans-serif;
-  background: linear-gradient(180deg,#1e1e1e,#3a2f2a,#d6bfa9);
+  background: linear-gradient(180deg,#1e1e1e,#3a2f2a,#c7a88a);
   color:#fff;
 }
 
-/* HERO */
+/* HERO (SEM CORTAR CABEÇA) */
 .hero{
   height:100vh;
-  background:url('capa.png') center/cover no-repeat;
+  background:url('capa.png') center 20%/cover no-repeat;
   position:relative;
 }
 
+/* NOME */
 .logo{
   position:absolute;
   top:60px;
@@ -38,8 +39,8 @@ body{
   position:fixed;
   top:20px;
   right:20px;
-  cursor:pointer;
   z-index:1000;
+  cursor:pointer;
 }
 .menu-btn div{
   width:28px;
@@ -94,25 +95,21 @@ section{
   border-radius:12px;
 }
 
-/* FOTO EXTRA */
-.destaque{
-  margin-top:40px;
-}
-.destaque img{
-  width:100%;
-  border-radius:12px;
-}
-
 /* SOBRE */
 .sobre{
   display:flex;
   flex-wrap:wrap;
-  gap:40px;
+  gap:50px;
   align-items:center;
 }
 .sobre img{
-  width:320px;
+  width:350px;
   border-radius:12px;
+}
+.titulo{
+  font-family:'Playfair Display', serif;
+  font-size:32px;
+  margin-bottom:20px;
 }
 
 /* CONTATO */
@@ -129,20 +126,20 @@ section{
   color:#fff;
 }
 
-/* WHATS */
+/* WHATSAPP REAL */
 .whatsapp{
   position:fixed;
   bottom:20px;
   right:20px;
   background:#25D366;
-  width:55px;
-  height:55px;
+  width:60px;
+  height:60px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   color:#fff;
-  font-size:26px;
+  font-size:30px;
   text-decoration:none;
 }
 </style>
@@ -187,25 +184,23 @@ section{
     <img src="mirian7.jpg">
     <img src="mirian8.jpg">
   </div>
-
-  <!-- FOTO EXTRA -->
-  <div class="destaque">
-    <img src="mirian8.jpg">
-  </div>
 </section>
 
 <!-- SOBRE -->
 <section id="sobre" class="sobre">
 
-  <img src="mirian3.jpg">
-
   <div>
+    <h2 class="titulo">Sobre</h2>
+
     <p>
       Mirian Soutto é cantora sertaneja natural de São Francisco (MG) e atualmente em Brasília (DF). 
       Dona de uma voz grave e marcante, já participou de rádios, incluindo a Atividade FM com o Vigão, 
       e realizou gravações em estúdio com produtores musicais como Rick Azevedo.
     </p>
   </div>
+
+  <!-- IMAGEM CERTA -->
+  <img src="mirian8.png">
 
 </section>
 
@@ -225,7 +220,9 @@ section{
   © 2026 Mirian Soutto – Todos os direitos reservados
 </footer>
 
-<a href="https://wa.me/5561998205298" class="whatsapp">💬</a>
+<a href="https://wa.me/5561998205298" class="whatsapp">
+  <i class="bi bi-whatsapp"></i>
+</a>
 
 <script>
 function toggleMenu(){
