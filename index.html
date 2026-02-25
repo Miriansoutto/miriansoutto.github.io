@@ -11,6 +11,7 @@
 
 <style>
 
+/* ===== BASE ===== */
 body{
   margin:0;
   font-family:'Montserrat', sans-serif;
@@ -18,7 +19,7 @@ body{
   color:#fff;
 }
 
-/* HERO */
+/* ===== HERO CAPA DE ÁLBUM ===== */
 .hero{
   height:100vh;
   position:relative;
@@ -26,58 +27,79 @@ body{
   align-items:flex-start;
   padding-top:120px;
   overflow:hidden;
+
   background: radial-gradient(circle at 70% 30%, #c58e5a 0%, #4b2e1f 40%, #1a120d 100%);
 }
 
-.hero::after{
+/* luz ambiente */
+.hero::before{
   content:"";
   position:absolute;
-  width:500px;
-  height:500px;
-  background: radial-gradient(circle, rgba(255,200,120,0.4), transparent 70%);
-  top:20%;
+  width:600px;
+  height:600px;
+  background: radial-gradient(circle, rgba(255,200,120,0.25), transparent 70%);
+  top:10%;
   right:10%;
-  filter: blur(80px);
+  filter: blur(100px);
   animation: glow 6s infinite alternate;
 }
 
 @keyframes glow{
-  from{opacity:0.5;}
+  from{opacity:0.4;}
   to{opacity:1;}
 }
 
+/* fade inferior (remove corte) */
+.hero::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:220px;
+
+  background: linear-gradient(to bottom, transparent, #1a120d);
+}
+
+/* ===== NOME ===== */
 .logo{
   font-family:'Playfair Display', serif;
-  font-size:60px;
+  font-size:64px;
   margin-left:8%;
+
   animation:fadeUp 1.5s;
 }
 
 @keyframes fadeUp{
-  from{opacity:0; transform:translateY(30px);}
+  from{opacity:0; transform:translateY(40px);}
   to{opacity:1; transform:translateY(0);}
 }
 
+/* ===== IMAGEM ===== */
 .hero-img{
   position:absolute;
   right:0;
-  top:120px;
-  max-height:85%;
+  top:100px;
+  max-height:90%;
 
   filter:
-    drop-shadow(0 30px 60px rgba(0,0,0,0.6))
-    drop-shadow(0 0 80px rgba(197,142,90,0.6));
+    drop-shadow(0 40px 80px rgba(0,0,0,0.7))
+    drop-shadow(0 0 100px rgba(197,142,90,0.5));
 
-  animation: float 4s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
+
+  /* 🔥 REMOVE CORTE */
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
 @keyframes float{
   0%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
+  50%{transform:translateY(-12px);}
   100%{transform:translateY(0);}
 }
 
-/* MENU */
+/* ===== MENU ===== */
 .menu-btn{
   position:fixed;
   top:20px;
@@ -109,24 +131,19 @@ body{
   text-decoration:none;
   color:#000;
 }
-.menu a:hover{
-  color:#c58e5a;
-}
-.menu.active{
-  right:0;
-}
+.menu.active{ right:0; }
 
-/* SEÇÕES */
+/* ===== SEÇÕES ===== */
 section{ padding:80px 6%; }
 
-/* VIDEO */
+/* ===== VIDEO ===== */
 .youtube iframe{
   width:100%;
   aspect-ratio:16/9;
   border-radius:16px;
 }
 
-/* GALERIA */
+/* ===== GALERIA ===== */
 .carousel{ position:relative; overflow:hidden; }
 
 .carousel-track{
@@ -137,7 +154,6 @@ section{ padding:80px 6%; }
 
 .carousel img{
   max-height:260px;
-  width:auto;
   border-radius:12px;
   opacity:0.6;
   transition:0.4s;
@@ -162,7 +178,7 @@ section{ padding:80px 6%; }
 .prev{left:10px;}
 .next{right:10px;}
 
-/* SOBRE */
+/* ===== SOBRE ===== */
 .sobre-box{
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
@@ -170,7 +186,6 @@ section{ padding:80px 6%; }
   padding:40px;
   display:flex;
   gap:30px;
-  align-items:center;
 }
 
 .sobre-box img{
@@ -178,7 +193,7 @@ section{ padding:80px 6%; }
   border-radius:12px;
 }
 
-/* CONTATO */
+/* ===== CONTATO ===== */
 #contato{text-align:center;}
 
 .redes a{
@@ -187,13 +202,12 @@ section{ padding:80px 6%; }
   color:#fff;
   transition:0.3s;
 }
-
 .redes a:hover{
   transform:scale(1.2);
   color:#c58e5a;
 }
 
-/* WHATS */
+/* ===== WHATS ===== */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -208,14 +222,16 @@ section{ padding:80px 6%; }
   font-size:28px;
 }
 
-/* RESPONSIVO */
+/* ===== RESPONSIVO ===== */
 @media(max-width:768px){
 
-.hero{ padding-top:80px; }
+.hero{
+  padding-top:80px;
+}
 
 .hero-img{
-  top:160px;
-  right:-20px;
+  top:140px;
+  right:-10px;
   width:95%;
 }
 
@@ -293,8 +309,7 @@ allowfullscreen>
 <div>
 <h2>Mirian Soutto</h2>
 <p>
-Mirian Soutto é uma cantora sertaneja natural de São Francisco, Minas Gerais, e atualmente reside em Brasília. Dona de uma voz marcante e grave, vem se destacando no cenário musical com apresentações em shows. Já participou da Atividade FM com Vigão e trabalhou em estúdio com produtores como Rick Azevedo. Seu repertório une clássicos e sucessos atuais, Mirian segue em expansão, buscando alcançar novos públicos e consolidar sua carreira em diferentes regiões.
-</p>
+Mirian Soutto é uma cantora sertaneja natural de São Francisco, Minas Gerais, e atualmente reside em Brasília. Dona de uma voz marcante e grave, vem se destacando no cenário musical com apresentações em eventos e shows. Ao longo de sua trajetória, já participou de programas de rádio, incluindo a Atividade FM com Vigão, e realizou trabalhos em estúdio com produtores como Rick Azevedo, fortalecendo ainda mais sua identidade artística. Com um repertório que une clássicos do sertanejo e sucessos atuais, Mirian segue em expansão, buscando alcançar novos públicos e consolidar sua carreira em diferentes regiões.
 </div>
 
 </div>
@@ -306,17 +321,9 @@ Mirian Soutto é uma cantora sertaneja natural de São Francisco, Minas Gerais, 
 <p>assessoriamiriansoutto@gmail.com</p>
 
 <div class="redes">
-<a href="https://www.instagram.com/cantora_mirian_soutto_oficial" target="_blank">
-<i class="bi bi-instagram"></i>
-</a>
-
-<a href="https://www.tiktok.com/@miriansoutto" target="_blank">
-<i class="bi bi-tiktok"></i>
-</a>
-
-<a href="https://youtu.be/lZuuiNR4WGc" target="_blank">
-<i class="bi bi-youtube"></i>
-</a>
+<a href="https://www.instagram.com/cantora_mirian_soutto_oficial" target="_blank"><i class="bi bi-instagram"></i></a>
+<a href="https://www.tiktok.com/@miriansoutto" target="_blank"><i class="bi bi-tiktok"></i></a>
+<a href="https://youtu.be/lZuuiNR4WGc" target="_blank"><i class="bi bi-youtube"></i></a>
 </div>
 </section>
 
@@ -330,12 +337,10 @@ Mirian Soutto é uma cantora sertaneja natural de São Francisco, Minas Gerais, 
 
 <script>
 
-/* MENU */
 function toggleMenu(){
 document.getElementById("menu").classList.toggle("active");
 }
 
-/* CARROSSEL */
 const track=document.querySelector('.carousel-track');
 const imgs=document.querySelectorAll('.carousel img');
 let i=0;
@@ -343,14 +348,11 @@ let i=0;
 function update(){
 imgs.forEach(img=>img.classList.remove('active'));
 imgs[i].classList.add('active');
-
-const offset=imgs[i].offsetLeft-100;
-track.style.transform=`translateX(-${offset}px)`;
+track.style.transform=`translateX(-${imgs[i].offsetLeft-100}px)`;
 }
 
 document.querySelector('.next').onclick=()=>{i=(i+1)%imgs.length;update();}
 document.querySelector('.prev').onclick=()=>{i=(i-1+imgs.length)%imgs.length;update();}
-
 setInterval(()=>{i=(i+1)%imgs.length;update();},3000);
 
 update();
