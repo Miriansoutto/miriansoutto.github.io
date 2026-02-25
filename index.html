@@ -13,11 +13,21 @@
 body{
   margin:0;
   font-family:'Montserrat', sans-serif;
-  background:#f5f2ec;
+  background: linear-gradient(180deg,#f7efe5,#efe3d6,#f5ebe1);
   color:#222;
+  overflow-x:hidden;
 }
 
-/* NOME NO TOPO */
+/* ANIMAÇÃO ENTRADA */
+body{
+  animation:fadeIn 1.5s ease;
+}
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+/* LOGO */
 .logo{
   position:fixed;
   top:20px;
@@ -27,14 +37,21 @@ body{
   z-index:1000;
 }
 
-/* HERO */
+/* HERO CINEMATOGRÁFICO */
 .hero{
-  height:100vh;
-  background:url('capa.png') center top/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   position:relative;
+  height:100vh;
+  overflow:hidden;
+}
+
+.video-bg{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:130%;
+  height:130%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
 }
 
 .hero::after{
@@ -42,15 +59,30 @@ body{
   position:absolute;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.2);
+  background:linear-gradient(180deg,rgba(0,0,0,0.3),rgba(0,0,0,0.6));
 }
 
+/* TEXTO CINEMA */
 .hero h1{
-  position:relative;
-  z-index:2;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
   color:#fff;
-  font-size:60px;
-  text-shadow:0 5px 20px rgba(0,0,0,0.6);
+  font-size:70px;
+  text-shadow:0 15px 40px rgba(0,0,0,0.8);
+  animation:slideUp 1.5s ease;
+}
+
+@keyframes slideUp{
+  from{
+    opacity:0;
+    transform:translate(-50%, 60%);
+  }
+  to{
+    opacity:1;
+    transform:translate(-50%, -50%);
+  }
 }
 
 /* MENU */
@@ -65,7 +97,7 @@ body{
 .menu-btn div{
   width:30px;
   height:3px;
-  background:#000;
+  background:#fff;
   margin:6px 0;
 }
 
@@ -83,8 +115,8 @@ body{
 .menu a{
   display:block;
   padding:15px;
-  text-decoration:none;
   color:#222;
+  text-decoration:none;
 }
 
 .menu.active{
@@ -93,25 +125,30 @@ body{
 
 /* SEÇÕES */
 section{
-  padding:100px 10%;
+  padding:120px 10%;
 }
 
 /* SOBRE */
 .sobre{
   display:flex;
   flex-wrap:wrap;
-  gap:40px;
+  gap:50px;
   align-items:center;
 }
 
 .sobre img{
-  width:300px;
-  border-radius:10px;
+  width:320px;
+  border-radius:12px;
 }
 
 .titulo{
   font-family:'Playfair Display', serif;
-  font-size:32px;
+  font-size:34px;
+}
+
+.sobre p{
+  line-height:1.7;
+  color:#444;
 }
 
 /* FUNDO SHOW */
@@ -119,67 +156,31 @@ section{
   background:url('mirian8.jpg') center/cover no-repeat;
   color:#fff;
   text-align:center;
-  padding:120px 10%;
-}
-
-/* VIDEOS */
-.videos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-}
-
-.video-card{
-  position:relative;
-}
-
-.video-card img{
-  width:100%;
-  height:320px;
-  object-fit:cover;
-  border-radius:10px;
-}
-
-.play{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(0,0,0,0.6);
-  color:#fff;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
+  padding:140px 10%;
 }
 
 /* YOUTUBE */
 .youtube{
-  margin-top:40px;
-  display:flex;
-  justify-content:center;
+  text-align:center;
 }
 
 .youtube iframe{
   width:100%;
-  max-width:700px;
-  height:400px;
-  border-radius:10px;
+  max-width:750px;
+  height:420px;
+  border-radius:12px;
 }
 
 /* GALERIA */
 .galeria{
   display:flex;
-  gap:15px;
+  gap:20px;
   overflow-x:auto;
 }
 
 .galeria img{
-  height:250px;
-  border-radius:10px;
+  height:260px;
+  border-radius:12px;
 }
 
 /* CONTATO */
@@ -188,8 +189,8 @@ section{
 }
 
 .redes a{
-  font-size:28px;
-  margin:0 10px;
+  font-size:30px;
+  margin:0 12px;
   color:#222;
 }
 
@@ -199,8 +200,8 @@ section{
   bottom:20px;
   right:20px;
   background:#25D366;
-  width:55px;
-  height:55px;
+  width:60px;
+  height:60px;
   border-radius:50%;
   display:flex;
   align-items:center;
@@ -224,75 +225,62 @@ section{
 
 <div class="menu" id="menu">
   <a href="#sobre">Sobre</a>
-  <a href="#videos">Vídeos</a>
+  <a href="#videos">Vídeo</a>
   <a href="#galeria">Galeria</a>
   <a href="#contato">Contato</a>
 </div>
 
-<!-- HERO -->
+<!-- HERO COM YOUTUBE -->
 <section class="hero">
+
+  <iframe class="video-bg"
+  src="https://www.youtube.com/embed/lZuuiNR4WGc?autoplay=1&mute=1&controls=0&loop=1&playlist=lZuuiNR4WGc"
+  frameborder="0"
+  allow="autoplay; fullscreen"></iframe>
+
   <h1>Mirian Soutto</h1>
+
 </section>
 
 <!-- SOBRE -->
-<section id="sobre">
-  <div class="sobre">
-    <img src="mirian1.jpg">
+<section id="sobre" class="sobre">
+  <img src="mirian1.jpg">
 
-    <div>
-      <h2 class="titulo">Sobre</h2>
-      <p>
-        Mirian Soutto é cantora sertaneja natural de São Francisco (MG) e atualmente em Brasília (DF), com voz marcante e presença de palco.
-      </p>
-    </div>
+  <div>
+    <h2 class="titulo">Sobre</h2>
+
+    <p>
+      Mirian Soutto é cantora sertaneja natural de São Francisco (MG) e atualmente em Brasília (DF). 
+      Com uma voz grave e marcante, já participou de rádios, incluindo a Atividade FM com o Vigão, 
+      e realizou gravações em estúdio com produtores musicais como Rick Azevedo.
+    </p>
   </div>
 </section>
 
 <!-- FUNDO -->
 <section class="fundo">
   <h2>Shows</h2>
-  <p>Eventos, bares e corporativos em todo o Brasil</p>
 </section>
 
-<!-- VIDEOS -->
-<section id="videos">
-  <h2 class="titulo">Vídeos</h2>
-
-  <div class="videos">
-    <a href="https://www.instagram.com/reel/DT3oOlvko1O/" target="_blank" class="video-card">
-      <img src="video1.jpg">
-      <div class="play">▶</div>
-    </a>
-
-    <a href="https://www.instagram.com/reel/DVEPuZkDqXt/" target="_blank" class="video-card">
-      <img src="video2.jpg">
-      <div class="play">▶</div>
-    </a>
-  </div>
-
-  <!-- YOUTUBE CERTO -->
-  <div class="youtube">
-    <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc" allowfullscreen></iframe>
-  </div>
-
+<!-- YOUTUBE PRINCIPAL -->
+<section id="videos" class="youtube">
+  <h2 class="titulo">Vídeo</h2>
+  <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc" allowfullscreen></iframe>
 </section>
 
 <!-- GALERIA -->
 <section id="galeria">
-  <h2 class="titulo">Galeria</h2>
-
   <div class="galeria">
     <img src="mirian1.jpg">
     <img src="mirian2.jpg">
     <img src="mirian3.jpg">
-    <img src="mirian4.jpg">
   </div>
 </section>
 
 <!-- CONTATO -->
 <section id="contato">
-  <h2 class="titulo">Contratações</h2>
-  <p>WhatsApp: (61) 99820-5298</p>
+  <h2 class="titulo">Contato</h2>
+  <p>(61) 99820-5298</p>
 
   <div class="redes">
     <a href="#"><i class="bi bi-instagram"></i></a>
