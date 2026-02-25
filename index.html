@@ -17,21 +17,10 @@ body{
   color:#222;
 }
 
-/* ANIMAÇÃO */
-.fade{
-  opacity:0;
-  transform:translateY(30px);
-  transition:1s;
-}
-.fade.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
 /* HERO */
 .hero{
   height:100vh;
-  background:url('capa.png') center/cover no-repeat;
+  background:url('capa.png') center top / cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -43,7 +32,7 @@ body{
   position:absolute;
   width:100%;
   height:100%;
-  background:rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.15);
 }
 
 .hero-content{
@@ -54,14 +43,16 @@ body{
 
 .hero h1{
   font-family:'Playfair Display', serif;
-  font-size:60px;
+  font-size:58px;
   margin:0;
+  color:#111;
 }
 
 .sub{
   letter-spacing:4px;
-  font-size:14px;
+  font-size:13px;
   margin-top:10px;
+  color:#333;
 }
 
 /* MENU */
@@ -74,9 +65,9 @@ body{
 }
 
 .menu-btn div{
-  width:30px;
+  width:28px;
   height:3px;
-  background:#000;
+  background:#111;
   margin:6px 0;
 }
 
@@ -89,7 +80,7 @@ body{
   background:#fff;
   padding-top:100px;
   transition:0.4s;
-  box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+  box-shadow:-5px 0 20px rgba(0,0,0,0.15);
 }
 
 .menu a{
@@ -97,6 +88,7 @@ body{
   padding:15px;
   color:#222;
   text-decoration:none;
+  font-size:15px;
 }
 
 .menu.active{
@@ -109,17 +101,22 @@ section{
   text-align:center;
 }
 
-/* TITULOS */
 .titulo{
   font-family:'Playfair Display', serif;
-  font-size:32px;
-  margin-bottom:30px;
+  font-size:30px;
+  margin-bottom:25px;
 }
 
 /* SOBRE */
 #sobre img{
-  width:280px;
+  width:250px;
   border-radius:10px;
+}
+
+#sobre p{
+  max-width:600px;
+  margin:auto;
+  line-height:1.6;
 }
 
 /* BOTÃO */
@@ -154,9 +151,41 @@ section{
 
 /* VIDEOS */
 .videos{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap:25px;
+}
+
+.video-card{
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.video-card img{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  transition:0.3s;
+}
+
+.video-card:hover img{
+  transform:scale(1.05);
+}
+
+.play{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  font-size:28px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
   display:flex;
-  flex-wrap:wrap;
-  gap:30px;
+  align-items:center;
   justify-content:center;
 }
 
@@ -168,13 +197,13 @@ section{
 }
 
 .galeria img{
-  height:250px;
+  height:240px;
   border-radius:10px;
 }
 
-/* REDES */
+/* CONTATO */
 .redes a{
-  font-size:28px;
+  font-size:26px;
   margin:0 10px;
   color:#222;
 }
@@ -185,13 +214,13 @@ section{
   bottom:20px;
   right:20px;
   background:#25D366;
-  width:60px;
-  height:60px;
+  width:58px;
+  height:58px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:30px;
+  font-size:28px;
   color:#fff;
   text-decoration:none;
 }
@@ -223,44 +252,51 @@ section{
 </section>
 
 <!-- SOBRE -->
-<section id="sobre" class="fade">
+<section id="sobre">
   <h2 class="titulo">Sobre</h2>
 
   <img src="mirian1.jpg"><br><br>
 
-  <p style="max-width:600px; margin:auto;">
-    Mirian Soutto é cantora sertaneja com voz grave e marcante, natural de São Francisco (MG) e atualmente em Brasília (DF). 
-    Já participou de rádios e gravações em estúdio, conquistando o público com presença de palco e um repertório envolvente para shows e eventos.
+  <p>
+    Mirian Soutto é cantora sertaneja natural de São Francisco (MG) e atualmente em Brasília (DF). 
+    Com voz marcante, já participou de rádios e gravações em estúdio, levando ao público um show envolvente e cheio de presença.
   </p>
 
   <a href="https://wa.me/5561998205298" class="btn">Contratar Show</a>
 </section>
 
 <!-- FUNDO -->
-<section class="fundo fade">
+<section class="fundo">
   <h2 class="titulo">Shows</h2>
-  <p>Eventos, bares, festas e corporativos em todo o Brasil.</p>
+  <p>Eventos, bares e corporativos em todo o Brasil.</p>
 </section>
 
 <!-- VIDEOS -->
-<section id="videos" class="fade">
+<section id="videos">
   <h2 class="titulo">Vídeos</h2>
 
   <div class="videos">
-    <iframe width="400" height="300" src="https://www.youtube.com/embed/lZuuiNR4WGc"></iframe>
 
-    <blockquote class="instagram-media"
-      data-instgrm-permalink="https://www.instagram.com/reel/DVEPuZkDqXt/"></blockquote>
+    <a href="https://www.instagram.com/reel/DT3oOlvko1O/" target="_blank" class="video-card">
+      <img src="video1.jpg">
+      <div class="play">▶</div>
+    </a>
 
-    <blockquote class="instagram-media"
-      data-instgrm-permalink="https://www.instagram.com/reel/DT3oOlvko1O/"></blockquote>
+    <a href="https://www.instagram.com/reel/DVEPuZkDqXt/" target="_blank" class="video-card">
+      <img src="video2.jpg">
+      <div class="play">▶</div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=lZuuiNR4WGc" target="_blank" class="video-card">
+      <img src="capa.png">
+      <div class="play">▶</div>
+    </a>
+
   </div>
 </section>
 
-<script async src="//www.instagram.com/embed.js"></script>
-
 <!-- GALERIA -->
-<section id="galeria" class="fade">
+<section id="galeria">
   <h2 class="titulo">Galeria</h2>
 
   <div class="galeria">
@@ -275,7 +311,7 @@ section{
 </section>
 
 <!-- CONTATO -->
-<section id="contato" class="fade">
+<section id="contato">
   <h2 class="titulo">Contratações</h2>
 
   <p>WhatsApp: (61) 99820-5298</p>
@@ -299,17 +335,6 @@ section{
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
-
-const elements = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', ()=>{
-  elements.forEach(el=>{
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      el.classList.add('show');
-    }
-  });
-});
 </script>
 
 </body>
