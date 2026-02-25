@@ -6,243 +6,219 @@
 
 <title>Mirian Soutto</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
 <style>
 
-/* ===== BASE ===== */
 body{
   margin:0;
-  font-family:'Montserrat', sans-serif;
-  background: linear-gradient(180deg,#1a120d,#4b2e1f,#c58e5a);
+  font-family: 'Georgia', serif;
+  background: linear-gradient(180deg,#2b1406,#5a341c,#2b1406);
   color:#fff;
 }
 
-/* ===== HERO CAPA DE ÁLBUM ===== */
-.hero{
-  height:100vh;
-  position:relative;
-  display:flex;
-  align-items:flex-start;
-  padding-top:120px;
-  overflow:hidden;
-
-  background: radial-gradient(circle at 70% 30%, #c58e5a 0%, #4b2e1f 40%, #1a120d 100%);
-}
-
-/* luz ambiente */
-.hero::before{
-  content:"";
-  position:absolute;
-  width:600px;
-  height:600px;
-  background: radial-gradient(circle, rgba(255,200,120,0.25), transparent 70%);
-  top:10%;
-  right:10%;
-  filter: blur(100px);
-  animation: glow 6s infinite alternate;
-}
-
-@keyframes glow{
-  from{opacity:0.4;}
-  to{opacity:1;}
-}
-
-/* fade inferior (remove corte) */
-.hero::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:220px;
-
-  background: linear-gradient(to bottom, transparent, #1a120d);
-}
-
-/* ===== NOME ===== */
-.logo{
-  font-family:'Playfair Display', serif;
-  font-size:64px;
-  margin-left:8%;
-
-  animation:fadeUp 1.5s;
-}
-
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(40px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* ===== IMAGEM ===== */
-.hero-img{
-  position:absolute;
-  right:0;
-  top:100px;
-  max-height:90%;
-
-  filter:
-    drop-shadow(0 40px 80px rgba(0,0,0,0.7))
-    drop-shadow(0 0 100px rgba(197,142,90,0.5));
-
-  animation: float 5s ease-in-out infinite;
-
-  /* 🔥 REMOVE CORTE */
-  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-}
-
-@keyframes float{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-12px);}
-  100%{transform:translateY(0);}
-}
-
-/* ===== MENU ===== */
+/* MENU */
 .menu-btn{
   position:fixed;
   top:20px;
   right:20px;
-  z-index:1001;
+  font-size:30px;
+  z-index:1000;
   cursor:pointer;
-}
-.menu-btn div{
-  width:30px;
-  height:3px;
-  background:#fff;
-  margin:6px 0;
 }
 
 .menu{
   position:fixed;
   top:0;
-  right:-260px;
-  width:220px;
+  right:-100%;
+  width:250px;
   height:100%;
-  background:#fff;
-  padding-top:100px;
+  background:#1a0d04;
   transition:0.4s;
-  z-index:1000;
+  padding:40px;
+  z-index:999;
 }
+
+.menu.active{
+  right:0;
+}
+
 .menu a{
   display:block;
-  padding:15px;
+  margin:20px 0;
+  color:#fff;
   text-decoration:none;
-  color:#000;
-}
-.menu.active{ right:0; }
-
-/* ===== SEÇÕES ===== */
-section{ padding:80px 6%; }
-
-/* ===== VIDEO ===== */
-.youtube iframe{
-  width:100%;
-  aspect-ratio:16/9;
-  border-radius:16px;
 }
 
-/* ===== GALERIA ===== */
-.carousel{ position:relative; overflow:hidden; }
-
-.carousel-track{
+/* CAPA */
+.hero{
+  min-height:85vh;
   display:flex;
-  gap:20px;
-  transition:0.5s;
-}
-
-.carousel img{
-  max-height:260px;
-  border-radius:12px;
-  opacity:0.6;
-  transition:0.4s;
-}
-
-.carousel img.active{
-  transform:scale(1.2);
-  opacity:1;
-}
-
-.prev,.next{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.5);
-  border:none;
-  color:#fff;
-  font-size:30px;
-  padding:10px;
-  cursor:pointer;
-}
-.prev{left:10px;}
-.next{right:10px;}
-
-/* ===== SOBRE ===== */
-.sobre-box{
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  border-radius:20px;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
   padding:40px;
+}
+
+.hero img{
+  position:absolute;
+  right:5%;
+  bottom:0;
+  max-height:85vh;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.8));
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:220px;
+  background:linear-gradient(to bottom, transparent, #2b1406);
+}
+
+.hero h1{
+  position:absolute;
+  left:40px;
+  top:80px;
+  font-size:60px;
+}
+
+/* VIDEO */
+.video{
+  padding:40px 20px;
+}
+
+.video iframe{
+  width:100%;
+  height:450px;
+  border:none;
+  border-radius:15px;
+}
+
+/* GALERIA NETFLIX */
+.galeria{
+  padding:40px 20px;
+}
+
+.slider{
   display:flex;
-  gap:30px;
+  overflow-x:auto;
+  gap:20px;
 }
 
-.sobre-box img{
-  width:260px;
-  border-radius:12px;
-}
-
-/* ===== CONTATO ===== */
-#contato{text-align:center;}
-
-.redes a{
-  font-size:30px;
-  margin:0 12px;
-  color:#fff;
+.slider img{
+  height:220px;
+  border-radius:10px;
+  object-fit:contain;
+  background:#000;
+  padding:5px;
   transition:0.3s;
 }
+
+.slider img:hover{
+  transform:scale(1.08);
+}
+
+/* SOBRE */
+.sobre{
+  padding:40px 20px;
+}
+
+.sobre-box{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:15px;
+}
+
+.sobre-img{
+  position:relative;
+}
+
+.sobre-img img{
+  width:320px;
+  border-radius:10px;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+}
+
+/* EFEITO NA COXA (IGUAL CAPA) */
+.sobre-img::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:180px;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,0),
+    rgba(43,20,6,0.7),
+    #2b1406
+  );
+}
+
+.sobre-text{
+  max-width:500px;
+}
+
+/* CONTATO */
+.contato{
+  text-align:center;
+  padding:40px 20px;
+}
+
+.redes a{
+  font-size:25px;
+  margin:10px;
+  color:#fff;
+}
+
 .redes a:hover{
-  transform:scale(1.2);
   color:#c58e5a;
 }
 
-/* ===== WHATS ===== */
+/* WHATSAPP */
 .whatsapp{
   position:fixed;
   bottom:20px;
   right:20px;
-  background:#25D366;
-  width:60px;
-  height:60px;
+  font-size:35px;
+  background:#25d366;
+  color:#fff;
+  padding:12px;
   border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
 }
 
-/* ===== RESPONSIVO ===== */
+/* RESPONSIVO */
 @media(max-width:768px){
 
 .hero{
-  padding-top:80px;
+  min-height:75vh;
+  padding:20px;
 }
 
-.hero-img{
-  top:140px;
-  right:-10px;
-  width:95%;
+.hero img{
+  position:relative;
+  right:auto;
+  max-height:60vh;
 }
 
-.logo{
-  font-size:38px;
-  margin-left:20px;
+.hero h1{
+  font-size:32px;
+  top:20px;
+  left:20px;
+}
+
+.video iframe{
+  height:230px;
 }
 
 .sobre-box{
   flex-direction:column;
-  text-align:center;
+  align-items:center;
 }
 
 }
@@ -252,111 +228,80 @@ section{ padding:80px 6%; }
 
 <body>
 
-<!-- MENU -->
-<div class="menu-btn" onclick="toggleMenu()">
-<div></div><div></div><div></div>
-</div>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
 <div class="menu" id="menu">
-<a href="#videos">Vídeo</a>
+<a href="#">Início</a>
+<a href="#video">Vídeo</a>
 <a href="#galeria">Galeria</a>
 <a href="#sobre">Sobre</a>
 <a href="#contato">Contato</a>
 </div>
 
-<!-- HERO -->
+<!-- CAPA -->
 <section class="hero">
-<h1 class="logo">Mirian Soutto</h1>
-<img src="capa.png" class="hero-img">
+<h1>Mirian Soutto</h1>
+<img src="capa.png">
 </section>
 
 <!-- VIDEO -->
-<section id="videos" class="youtube">
-<iframe 
-src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60&autoplay=1&mute=1&controls=0"
-allow="autoplay"
-allowfullscreen>
-</iframe>
+<section id="video" class="video">
+<iframe src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60&autoplay=1&mute=1"></iframe>
 </section>
 
 <!-- GALERIA -->
-<section id="galeria">
-<div class="carousel">
-
-<button class="prev">&#10094;</button>
-
-<div class="carousel-track">
+<section id="galeria" class="galeria">
+<div class="slider">
 <img src="mirian2.jpg">
 <img src="mirian3.jpg">
 <img src="mirian4.jpg">
 <img src="mirian5.jpg">
 <img src="mirian6.jpg">
 <img src="mirian7.jpg">
-<img src="mirian8.jpg">
-</div>
-
-<button class="next">&#10095;</button>
-
 </div>
 </section>
 
 <!-- SOBRE -->
-<section id="sobre">
+<section id="sobre" class="sobre">
 <div class="sobre-box">
 
+<div class="sobre-img">
 <img src="capa.png">
+</div>
 
-<div>
-<h2>Mirian Soutto</h2>
+<div class="sobre-text">
+<h2>Sobre</h2>
 <p>
 Mirian Soutto é uma cantora sertaneja natural de São Francisco, Minas Gerais, e atualmente reside em Brasília. Dona de uma voz marcante e grave, vem se destacando no cenário musical com apresentações em eventos e shows. Ao longo de sua trajetória, já participou de programas de rádio, incluindo a Atividade FM com Vigão, e realizou trabalhos em estúdio com produtores como Rick Azevedo, fortalecendo ainda mais sua identidade artística. Com um repertório que une clássicos do sertanejo e sucessos atuais, Mirian segue em expansão, buscando alcançar novos públicos e consolidar sua carreira em diferentes regiões.
+</p>
 </div>
 
 </div>
 </section>
 
 <!-- CONTATO -->
-<section id="contato">
+<section id="contato" class="contato">
 <p>(61) 99820-5298</p>
 <p>assessoriamiriansoutto@gmail.com</p>
 
 <div class="redes">
 <a href="https://www.instagram.com/cantora_mirian_soutto_oficial" target="_blank"><i class="bi bi-instagram"></i></a>
-<a href="https://www.tiktok.com/@miriansoutto" target="_blank"><i class="bi bi-tiktok"></i></a>
+<a href="https://www.tiktok.com" target="_blank"><i class="bi bi-tiktok"></i></a>
 <a href="https://youtu.be/lZuuiNR4WGc" target="_blank"><i class="bi bi-youtube"></i></a>
 </div>
+
+<p>© 2026 Mirian Soutto - Todos os direitos reservados</p>
 </section>
 
-<footer style="text-align:center;padding:40px;">
-© 2026 Mirian Soutto – Todos os direitos reservados
-</footer>
-
-<a href="https://wa.me/5561998205298" class="whatsapp">
+<!-- WHATS -->
+<a href="https://wa.me/5561998205298" class="whatsapp" target="_blank">
 <i class="bi bi-whatsapp"></i>
 </a>
 
 <script>
-
 function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
+  document.getElementById("menu").classList.toggle("active");
 }
-
-const track=document.querySelector('.carousel-track');
-const imgs=document.querySelectorAll('.carousel img');
-let i=0;
-
-function update(){
-imgs.forEach(img=>img.classList.remove('active'));
-imgs[i].classList.add('active');
-track.style.transform=`translateX(-${imgs[i].offsetLeft-100}px)`;
-}
-
-document.querySelector('.next').onclick=()=>{i=(i+1)%imgs.length;update();}
-document.querySelector('.prev').onclick=()=>{i=(i-1+imgs.length)%imgs.length;update();}
-setInterval(()=>{i=(i+1)%imgs.length;update();},3000);
-
-update();
-
 </script>
 
 </body>
