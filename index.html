@@ -11,7 +11,6 @@
 
 <style>
 
-/* ===== BASE ===== */
 body{
   margin:0;
   font-family:'Montserrat', sans-serif;
@@ -19,7 +18,7 @@ body{
   color:#fff;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   height:100vh;
   position:relative;
@@ -30,7 +29,6 @@ body{
   background: radial-gradient(circle at 70% 30%, #c58e5a 0%, #4b2e1f 40%, #1a120d 100%);
 }
 
-/* luz palco */
 .hero::after{
   content:"";
   position:absolute;
@@ -48,21 +46,18 @@ body{
   to{opacity:1;}
 }
 
-/* NOME */
 .logo{
   font-family:'Playfair Display', serif;
   font-size:60px;
   margin-left:8%;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1.5s forwards;
+  animation:fadeUp 1.5s;
 }
 
 @keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
   to{opacity:1; transform:translateY(0);}
 }
 
-/* IMAGEM */
 .hero-img{
   position:absolute;
   right:0;
@@ -82,12 +77,12 @@ body{
   100%{transform:translateY(0);}
 }
 
-/* ===== MENU ===== */
+/* MENU */
 .menu-btn{
   position:fixed;
   top:20px;
   right:20px;
-  z-index:1000;
+  z-index:1001;
   cursor:pointer;
 }
 .menu-btn div{
@@ -106,6 +101,7 @@ body{
   background:#fff;
   padding-top:100px;
   transition:0.4s;
+  z-index:1000;
 }
 .menu a{
   display:block;
@@ -113,19 +109,24 @@ body{
   text-decoration:none;
   color:#000;
 }
-.menu.active{ right:0; }
+.menu a:hover{
+  color:#c58e5a;
+}
+.menu.active{
+  right:0;
+}
 
-/* ===== SEÇÕES ===== */
+/* SEÇÕES */
 section{ padding:80px 6%; }
 
-/* ===== VIDEO ===== */
+/* VIDEO */
 .youtube iframe{
   width:100%;
   aspect-ratio:16/9;
   border-radius:16px;
 }
 
-/* ===== GALERIA ===== */
+/* GALERIA */
 .carousel{ position:relative; overflow:hidden; }
 
 .carousel-track{
@@ -137,7 +138,6 @@ section{ padding:80px 6%; }
 .carousel img{
   max-height:260px;
   width:auto;
-  object-fit:contain;
   border-radius:12px;
   opacity:0.6;
   transition:0.4s;
@@ -162,7 +162,7 @@ section{ padding:80px 6%; }
 .prev{left:10px;}
 .next{right:10px;}
 
-/* ===== SOBRE ===== */
+/* SOBRE */
 .sobre-box{
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
@@ -178,15 +178,22 @@ section{ padding:80px 6%; }
   border-radius:12px;
 }
 
-/* ===== CONTATO ===== */
+/* CONTATO */
 #contato{text-align:center;}
+
 .redes a{
   font-size:30px;
   margin:0 12px;
   color:#fff;
+  transition:0.3s;
 }
 
-/* ===== WHATS ===== */
+.redes a:hover{
+  transform:scale(1.2);
+  color:#c58e5a;
+}
+
+/* WHATS */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -201,7 +208,7 @@ section{ padding:80px 6%; }
   font-size:28px;
 }
 
-/* ===== RESPONSIVO ===== */
+/* RESPONSIVO */
 @media(max-width:768px){
 
 .hero{ padding-top:80px; }
@@ -250,7 +257,7 @@ section{ padding:80px 6%; }
 <!-- VIDEO -->
 <section id="videos" class="youtube">
 <iframe 
-src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60&autoplay=1&mute=1&controls=0&modestbranding=1"
+src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60&autoplay=1&mute=1&controls=0"
 allow="autoplay"
 allowfullscreen>
 </iframe>
@@ -286,7 +293,7 @@ allowfullscreen>
 <div>
 <h2>Mirian Soutto</h2>
 <p>
-Mirian Soutto é uma cantora sertaneja natural de São Francisco, Minas Gerais, e atualmente reside em Brasília. Dona de uma voz marcante e grave, vem se destacando no cenário musical com apresentações em shows. Já participou da Atividade FM com Vigão e trabalhou em estúdio com produtores como Rick Azevedo. Seu repertório une clássicos e sucessos atuais, buscando expandir sua carreira para novos públicos.
+Mirian Soutto é uma cantora sertaneja natural de São Francisco, Minas Gerais, e atualmente reside em Brasília. Dona de uma voz marcante e grave, vem se destacando no cenário musical com apresentações em shows. Já participou da Atividade FM com Vigão e trabalhou em estúdio com produtores como Rick Azevedo. Seu repertório une clássicos e sucessos atuais, Mirian segue em expansão, buscando alcançar novos públicos e consolidar sua carreira em diferentes regiões.
 </p>
 </div>
 
@@ -299,9 +306,17 @@ Mirian Soutto é uma cantora sertaneja natural de São Francisco, Minas Gerais, 
 <p>assessoriamiriansoutto@gmail.com</p>
 
 <div class="redes">
-<a href="#"><i class="bi bi-instagram"></i></a>
-<a href="#"><i class="bi bi-tiktok"></i></a>
-<a href="#"><i class="bi bi-youtube"></i></a>
+<a href="https://www.instagram.com/cantora_mirian_soutto_oficial" target="_blank">
+<i class="bi bi-instagram"></i>
+</a>
+
+<a href="https://www.tiktok.com/@miriansoutto" target="_blank">
+<i class="bi bi-tiktok"></i>
+</a>
+
+<a href="https://youtu.be/lZuuiNR4WGc" target="_blank">
+<i class="bi bi-youtube"></i>
+</a>
 </div>
 </section>
 
