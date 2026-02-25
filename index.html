@@ -11,28 +11,48 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
-  font-family:'Playfair Display', serif;
-  color:#fff;
-  background:linear-gradient(180deg,#2b1409,#6e3d1f,#a46a3a);
+font-family:'Playfair Display', serif;
+color:#fff;
+background:linear-gradient(180deg,#2b1409,#6e3d1f,#a46a3a);
 }
 
 /* MENU */
 .menu{
-position:fixed;top:20px;right:20px;z-index:999;
-font-size:28px;cursor:pointer;
+position:fixed;
+top:20px;
+right:20px;
+z-index:999;
+font-size:28px;
+cursor:pointer;
 }
+
+/* 🔥 MENU AGORA COM FUNDO */
 .menu-links{
-position:fixed;top:0;right:-100%;
-width:200px;height:100%;
-background:#2b1409;
-padding:40px;
+position:fixed;
+top:0;
+right:-100%;
+width:220px;
+height:100%;
+background:rgba(43,20,9,0.95);
+backdrop-filter:blur(10px);
+padding:60px 30px;
 transition:0.4s;
+z-index:998;
 }
+
 .menu-links a{
-display:block;color:#fff;text-decoration:none;margin:20px 0;
+display:block;
+color:#fff;
+text-decoration:none;
+margin:20px 0;
+font-size:20px;
 }
-.menu-links.active{right:0}
+
+.menu-links.active{
+right:0;
+}
 
 /* CAPA */
 .capa{
@@ -43,19 +63,22 @@ justify-content:space-between;
 padding:5%;
 overflow:hidden;
 }
+
 .capa-text{
 font-size:48px;
 z-index:2;
 }
+
 .capa-img{
 position:relative;
 }
+
 .capa-img img{
 height:90vh;
 object-fit:contain;
 }
 
-/* 🔥 EFEITO COXA CAPA */
+/* EFEITO COXA CAPA */
 .capa-img::after{
 content:'';
 position:absolute;
@@ -80,10 +103,12 @@ text-align:center;
 height:auto;
 padding:80px 20px;
 }
+
 .capa-text{
 font-size:36px;
 margin-bottom:20px;
 }
+
 .capa-img img{
 height:55vh;
 }
@@ -93,6 +118,7 @@ height:55vh;
 .video{
 padding:40px 5%;
 }
+
 .video iframe{
 width:100%;
 aspect-ratio:16/9;
@@ -104,18 +130,25 @@ border-radius:15px;
 .galeria{
 padding:40px 5%;
 }
-.galeria h2{text-align:center;margin-bottom:20px}
+
+.galeria h2{
+text-align:center;
+margin-bottom:20px;
+}
+
 .galeria-container{
 display:flex;
 gap:15px;
 overflow-x:auto;
 }
+
 .galeria-container img{
 height:200px;
 border-radius:12px;
 object-fit:cover;
 transition:0.3s;
 }
+
 .galeria-container img:hover{
 transform:scale(1.08);
 }
@@ -137,7 +170,7 @@ width:300px;
 border-radius:15px;
 }
 
-/* 🔥 EFEITO COXA SOBRE */
+/* EFEITO COXA SOBRE */
 .sobre-img::after{
 content:'';
 position:absolute;
@@ -220,7 +253,6 @@ font-size:14px;
 <a href="#contato">Contato</a>
 </div>
 
-<!-- CAPA -->
 <section class="capa">
 <div class="capa-text">Mirian Soutto</div>
 <div class="capa-img">
@@ -228,12 +260,10 @@ font-size:14px;
 </div>
 </section>
 
-<!-- VIDEO -->
 <section class="video">
 <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60&autoplay=1&mute=1"></iframe>
 </section>
 
-<!-- GALERIA -->
 <section class="galeria" id="galeria">
 <h2>Galeria</h2>
 <div class="galeria-container">
@@ -246,7 +276,6 @@ font-size:14px;
 </div>
 </section>
 
-<!-- SOBRE -->
 <section class="sobre" id="sobre">
 <div class="sobre-img">
 <img src="capa.png">
@@ -260,7 +289,6 @@ Mirian Soutto é uma cantora sertaneja natural de São Francisco, Minas Gerais, 
 </div>
 </section>
 
-<!-- CONTATO -->
 <section class="contato" id="contato">
 <p>(61) 99820-5298</p>
 <p>assessoriamiriansoutto@gmail.com</p>
