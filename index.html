@@ -3,92 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Mirian Soutto</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-font-family:'Playfair Display', serif;
-background: linear-gradient(135deg,#1a0e08,#5a2e12,#a97142);
-color:#fff;
+  font-family:'Playfair Display', serif;
+  color:#fff;
+  background:linear-gradient(180deg,#2b1409,#6e3d1f,#a46a3a);
 }
 
 /* MENU */
-.menu-btn{
-position:fixed;
-top:20px;
-right:20px;
-font-size:28px;
-cursor:pointer;
-z-index:999;
-}
-
 .menu{
-position:fixed;
-top:0;
-right:-100%;
-width:70%;
-height:100%;
-background:#2a140a;
-transition:0.4s;
+position:fixed;top:20px;right:20px;z-index:999;
+font-size:28px;cursor:pointer;
+}
+.menu-links{
+position:fixed;top:0;right:-100%;
+width:200px;height:100%;
+background:#2b1409;
 padding:40px;
-z-index:998;
+transition:0.4s;
 }
-
-.menu a{
-display:block;
-margin:20px 0;
-color:#fff;
-text-decoration:none;
-font-size:20px;
+.menu-links a{
+display:block;color:#fff;text-decoration:none;margin:20px 0;
 }
-
-.menu.active{right:0;}
+.menu-links.active{right:0}
 
 /* CAPA */
-.hero{
+.capa{
 height:100vh;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:60px;
-position:relative;
+padding:5%;
 overflow:hidden;
 }
-
-.hero h1{
-font-size:60px;
+.capa-text{
+font-size:48px;
 z-index:2;
 }
-
-.hero img{
-position:absolute;
-right:0;
-bottom:0;
-height:95%;
+.capa-img{
+position:relative;
+}
+.capa-img img{
+height:90vh;
 object-fit:contain;
-z-index:1;
 }
-
-/* efeito coxa */
-.hero::after{
-content:"";
+.capa-img::after{
+content:'';
 position:absolute;
 bottom:0;
-left:0;
 width:100%;
-height:200px;
-background:linear-gradient(to bottom, transparent, #2b160c);
+height:120px;
+background:linear-gradient(transparent,#2b1409);
 }
 
-/* BOTÃO */
-.btn{
+/* MOBILE AJUSTE */
+@media(max-width:768px){
+.capa{
+flex-direction:column;
+justify-content:center;
+text-align:center;
+height:auto;
+padding:80px 20px;
+}
+.capa-text{
+font-size:36px;
+margin-bottom:20px;
+}
+.capa-img img{
+height:55vh;
+}
+}
+
+/* VIDEO */
+.video{
+padding:40px 5%;
+}
+.video iframe{
+width:100%;
+aspect-ratio:16/9;
+border:none;
+border-radius:15px;
+}
+
+/* GALERIA NETFLIX */
+.galeria{
+padding:40px 5%;
+}
+.galeria h2{text-align:center;margin-bottom:20px}
+.galeria-container{
+display:flex;
+gap:15px;
+overflow-x:auto;
+}
+.galeria-container img{
+height:200px;
+border-radius:12px;
+object-fit:cover;
+transition:0.3s;
+}
+.galeria-container img:hover{
+transform:scale(1.08);
+}
+
+/* SOBRE */
+.sobre{
+padding:60px 5%;
+display:flex;
+align-items:center;
+gap:40px;
+}
+.sobre img{
+width:300px;
+border-radius:15px;
+position:relative;
+}
+.sobre-img{
+position:relative;
+}
+.sobre-img::after{
+content:'';
 position:absolute;
-bottom:40px;
-left:60px;
+bottom:0;
+width:100%;
+height:120px;
+background:linear-gradient(transparent,#6e3d1f);
+}
+.sobre-text{
+max-width:600px;
+}
+
+@media(max-width:768px){
+.sobre{
+flex-direction:column;
+text-align:center;
+}
+}
+
+/* CONTATO */
+.contato{
+text-align:center;
+padding:40px 20px;
+}
+.icones a{
+margin:10px;
+font-size:26px;
+color:#fff;
+}
+
+/* BOTÃO CONTRATAR */
+.contratar{
+margin-top:20px;
+display:inline-block;
 background:#c08b5c;
 padding:12px 25px;
 border-radius:30px;
@@ -96,166 +168,48 @@ text-decoration:none;
 color:#fff;
 }
 
-/* VIDEO */
-.video{
-padding:40px;
-display:flex;
-justify-content:center;
-}
-
-.video iframe{
-width:90%;
-height:400px;
-border-radius:20px;
-border:none;
-}
-
-/* GALERIA NETFLIX */
-.galeria{
-padding:40px;
-}
-
-.galeria h2{text-align:center;margin-bottom:20px;}
-
-.galeria-container{
-display:flex;
-gap:20px;
-overflow-x:auto;
-}
-
-.galeria-container img{
-height:220px;
-border-radius:15px;
-flex-shrink:0;
-object-fit:cover;
-}
-
-/* SOBRE */
-.sobre{
-padding:60px;
-display:flex;
-align-items:center;
-gap:40px;
-}
-
-.sobre img{
-width:300px;
-border-radius:20px;
-}
-
-/* efeito coxa sobre */
-.sobre-img{
-position:relative;
-}
-.sobre-img::after{
-content:"";
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-height:120px;
-background:linear-gradient(to bottom, transparent, #5a2e12);
-border-radius:20px;
-}
-
-.sobre-texto{
-flex:1;
-}
-
-.sobre h2{
-margin-bottom:20px;
-}
-
-/* CONTATO */
-.contato{
-text-align:center;
-padding:40px;
-}
-
-.contato a{
-margin:10px;
-display:inline-block;
-}
-
-/* WHATS */
+/* WHATSAPP */
 .whatsapp{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
+color:#fff;
+font-size:26px;
 padding:15px;
 border-radius:50%;
-font-size:20px;
-color:#fff;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-
-.hero{
-flex-direction:column;
-justify-content:flex-start;
-padding:30px;
-}
-
-.hero h1{
-font-size:36px;
+/* RODAPÉ */
+footer{
 text-align:center;
-margin-top:40px;
+padding:20px;
+font-size:14px;
 }
-
-.hero img{
-position:relative;
-height:300px;
-margin-top:20px;
-}
-
-.btn{
-position:relative;
-left:0;
-bottom:0;
-margin-top:20px;
-}
-
-.video iframe{
-height:250px;
-}
-
-.sobre{
-flex-direction:column;
-text-align:center;
-}
-
-.sobre img{
-width:80%;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="menu" onclick="toggleMenu()">☰</div>
 
-<div class="menu" id="menu">
-<a href="#inicio">Início</a>
-<a href="#video">Vídeo</a>
+<div class="menu-links" id="menu">
+<a href="#">Início</a>
 <a href="#galeria">Galeria</a>
 <a href="#sobre">Sobre</a>
 <a href="#contato">Contato</a>
 </div>
 
 <!-- CAPA -->
-<section class="hero" id="inicio">
-<h1>Mirian Soutto</h1>
+<section class="capa">
+<div class="capa-text">Mirian Soutto</div>
+<div class="capa-img">
 <img src="capa.png">
-<a href="https://wa.me/5561998205298" class="btn">Contratar</a>
+</div>
 </section>
 
 <!-- VIDEO -->
-<section class="video" id="video">
+<section class="video">
 <iframe src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60&autoplay=1&mute=1"></iframe>
 </section>
 
@@ -269,24 +223,20 @@ width:80%;
 <img src="mirian5.jpg">
 <img src="mirian6.jpg">
 <img src="mirian7.jpg">
-<img src="mirian8.png">
 </div>
 </section>
 
 <!-- SOBRE -->
 <section class="sobre" id="sobre">
-
 <div class="sobre-img">
 <img src="capa.png">
 </div>
-
-<div class="sobre-texto">
+<div class="sobre-text">
 <h2>Sobre</h2>
 <p>
 Mirian Soutto é uma cantora sertaneja natural de São Francisco, Minas Gerais, e atualmente reside em Brasília. Dona de uma voz marcante e grave, vem se destacando no cenário musical com apresentações em eventos e shows. Ao longo de sua trajetória, já participou de programas de rádio, incluindo a Atividade FM com Vigão, e realizou trabalhos em estúdio com produtores como Rick Azevedo, fortalecendo ainda mais sua identidade artística. Com um repertório que une clássicos do sertanejo e sucessos atuais, Mirian segue em expansão, buscando alcançar novos públicos e consolidar sua carreira em diferentes regiões.
 </p>
 </div>
-
 </section>
 
 <!-- CONTATO -->
@@ -294,17 +244,26 @@ Mirian Soutto é uma cantora sertaneja natural de São Francisco, Minas Gerais, 
 <p>(61) 99820-5298</p>
 <p>assessoriamiriansoutto@gmail.com</p>
 
-<a href="https://instagram.com" target="_blank">Instagram</a>
-<a href="https://tiktok.com" target="_blank">TikTok</a>
-<a href="https://youtube.com" target="_blank">YouTube</a>
+<div class="icones">
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-tiktok"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+</div>
 
+<a href="#" class="contratar">Contratar</a>
 </section>
 
-<a href="https://wa.me/5561998205298" class="whatsapp">💬</a>
+<footer>
+© 2026 Mirian Soutto - Todos os direitos reservados
+</footer>
+
+<a href="https://wa.me/5561998205298" class="whatsapp">
+<i class="fab fa-whatsapp"></i>
+</a>
 
 <script>
 function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
+document.getElementById('menu').classList.toggle('active');
 }
 </script>
 
