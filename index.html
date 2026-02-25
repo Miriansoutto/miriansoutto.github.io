@@ -11,35 +11,43 @@
 
 <style>
 
+/* RESET */
 body{
   margin:0;
   font-family:'Montserrat', sans-serif;
   background: linear-gradient(180deg,#1a120d,#4b2e1f,#c58e5a);
   color:#fff;
+  scroll-behavior:smooth;
 }
 
 /* HERO */
 .hero{
   height:100vh;
   position:relative;
-  background: radial-gradient(circle at right,#6b3f24,#2b1d14);
+  background: radial-gradient(circle at right,#8a5430,#2b1d14);
   overflow:hidden;
   display:flex;
   align-items:center;
 }
 
+/* IMAGEM */
 .hero-img{
   position:absolute;
   bottom:0;
   right:0;
-  height:85%;
+  height:90%;
+  filter:
+    drop-shadow(0 20px 40px rgba(0,0,0,0.6))
+    drop-shadow(0 0 80px rgba(197,142,90,0.5));
+  animation: fadeUp 1.5s ease;
 }
 
+/* NOME */
 .logo{
   margin-left:8%;
   font-family:'Playfair Display', serif;
-  font-size:56px;
-  z-index:2;
+  font-size:60px;
+  animation: fadeUp 1.2s ease;
 }
 
 /* MENU */
@@ -77,50 +85,66 @@ body{
   right:0;
 }
 
+/* ANIMAÇÃO */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform: translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
 /* SEÇÕES */
 section{
-  padding:60px 8%;
+  padding:80px 8%;
 }
 
 /* VIDEO */
 .youtube iframe{
   width:100%;
-  height:60vh;
+  aspect-ratio:16/9;
   border-radius:12px;
 }
 
-/* GALERIA */
+/* GALERIA PREMIUM */
 .galeria{
   display:grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap:20px;
 }
 .galeria img{
   width:100%;
-  height:220px;
-  object-fit:cover;
+  height:auto;
   border-radius:12px;
+  transition:0.4s;
+}
+.galeria img:hover{
+  transform: scale(1.05);
 }
 
 /* SOBRE */
 .sobre-box{
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
-  border-radius:16px;
-  padding:30px;
+  border-radius:20px;
+  padding:40px;
   display:flex;
   gap:30px;
   align-items:center;
+  animation: fadeUp 1s ease;
 }
 
 .sobre-box img{
-  width:250px;
+  width:260px;
   border-radius:12px;
 }
 
 .sobre-texto h3{
   font-family:'Playfair Display', serif;
-  font-size:28px;
+  font-size:30px;
 }
 
 .sobre-texto p{
@@ -134,8 +158,12 @@ section{
 
 .redes a{
   font-size:30px;
-  margin:0 10px;
+  margin:0 12px;
   color:#fff;
+  transition:0.3s;
+}
+.redes a:hover{
+  transform:scale(1.2);
 }
 
 /* WHATS */
@@ -153,32 +181,25 @@ section{
   font-size:28px;
 }
 
-/* 🔥 RESPONSIVO (CELULAR) */
+/* RESPONSIVO */
 @media(max-width:768px){
 
 .hero{
   flex-direction:column;
   justify-content:center;
+  text-align:center;
 }
 
 .logo{
-  font-size:34px;
+  font-size:38px;
   margin:0;
-  text-align:center;
 }
 
 .hero-img{
   position:relative;
-  height:55%;
+  height:auto;
+  width:85%;
   margin-top:20px;
-}
-
-.youtube iframe{
-  height:250px;
-}
-
-.galeria{
-  grid-template-columns:1fr;
 }
 
 .sobre-box{
@@ -209,11 +230,8 @@ section{
 
 <!-- HERO -->
 <section class="hero">
-
   <h1 class="logo">Mirian Soutto</h1>
-
   <img src="capa.png" class="hero-img">
-
 </section>
 
 <!-- VIDEO -->
