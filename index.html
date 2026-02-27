@@ -23,13 +23,13 @@ overflow-x:hidden;
 /* ANIMAÇÕES */
 .fade{
 opacity:0;
-transform:translateY(40px);
-transition:1s;
+transform:translateY(60px) scale(0.98);
+transition: all 1s ease;
 }
 
 .fade.show{
 opacity:1;
-transform:translateY(0);
+transform:translateY(0) scale(1);
 }
 
 /* MENU */
@@ -120,14 +120,42 @@ mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
 
 /* VIDEO */
 .video{
-padding:80px 10%;
+position:relative;
+width:100%;
+height:80vh;
+overflow:hidden;
 }
 
 .video iframe{
+position:absolute;
+top:50%;
+left:50%;
+width:177.77vh;
+height:100vh;
+transform:translate(-50%, -50%);
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
 width:100%;
-height:500px;
-border-radius:15px;
-box-shadow:0 20px 50px rgba(0,0,0,0.6);
+height:100%;
+background:rgba(0,0,0,0.3);
+}
+
+#btnSom{
+position:absolute;
+bottom:20px;
+left:20px;
+background:rgba(0,0,0,0.6);
+color:#fff;
+border:none;
+width:45px;
+height:45px;
+border-radius:50%;
+font-size:18px;
+cursor:pointer;
 }
 
 /* GALERIA */
@@ -281,7 +309,15 @@ height:200px;
 </section>
 
 <section class="video fade">
-<iframe src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60&autoplay=1&mute=1&controls=0"></iframe>
+
+<iframe id="videoYT"
+src="https://www.youtube.com/embed/lZuuiNR4WGc?start=60&autoplay=1&mute=1&controls=0&loop=1&playlist=lZuuiNR4WGc"
+allow="autoplay">
+</iframe>
+
+<div class="overlay"></div>
+<button id="btnSom">🔊</button>
+
 </section>
 
 <div class="galeria fade">
@@ -361,6 +397,7 @@ Mensagem enviada com sucesso! Entraremos em contato 👌
 <a href="https://wa.me/5561998205298" class="whats">
 <i class="bi bi-whatsapp"></i>
 </a>
+    
 
 <script>
 function toggleMenu(){
@@ -394,6 +431,13 @@ document.getElementById("msg-sucesso").style.display = "block";
 }
 });
 }
+const btn = document.getElementById("btnSom");
+const video = document.getElementById("videoYT");
+
+btn.addEventListener("click", () => {
+video.src = "https://www.youtube.com/embed/lZuuiNR4WGc?start=60&autoplay=1&mute=0&controls=1";
+btn.style.display = "none";
+});
 </script>
 
 </body>
