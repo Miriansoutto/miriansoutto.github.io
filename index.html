@@ -88,35 +88,17 @@ left:20%;
 
 /* TEXTO */
 .hero-text h1{
-  font-family:'Playfair Display',serif;
-  font-size:68px;
-  margin:0;
-
-  letter-spacing:4px;
-
-  background: linear-gradient(180deg, #ffffff, #f1d2a5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow:
-    0 6px 25px rgba(0,0,0,0.6),
-    0 0 35px rgba(255,180,100,0.35);
-
-  animation:nomeEntrada 1.2s ease forwards;
+font-family:'Playfair Display',serif;
+font-size:60px;
+margin:0;
+animation:fadeIn 1.5s ease;
+text-shadow:0 4px 20px rgba(0,0,0,0.6);
+letter-spacing:2px;
+}
 
 @keyframes fadeIn{
 from{opacity:0; transform:translateY(30px);}
 to{opacity:1; transform:translateY(0);}
-}
-@keyframes nomeEntrada{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
 }
 /* IMAGEM */
 .hero-img{
