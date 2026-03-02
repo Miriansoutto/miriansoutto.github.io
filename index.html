@@ -88,14 +88,24 @@ left:20%;
 
 /* TEXTO */
 .hero-text h1{
-font-family:'Playfair Display',serif;
-font-size:60px;
-margin:0;
-animation:fadeIn 1.5s ease;
-text-shadow:0 4px 20px rgba(0,0,0,0.6);
-letter-spacing:2px;
-}
+  font-family:'Playfair Display',serif;
+  font-size:64px;
+  margin:0;
 
+  letter-spacing:3px;
+
+  color:#ffffff;
+
+  text-shadow:
+    0 4px 20px rgba(0,0,0,0.6),
+    0 0 25px rgba(255,180,100,0.25);
+
+  animation:fadeIn 1.5s ease;
+}
+.hero-text{
+  position:relative;
+  z-index:2;
+}
 @keyframes fadeIn{
 from{opacity:0; transform:translateY(30px);}
 to{opacity:1; transform:translateY(0);}
